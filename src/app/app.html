@@ -1,0 +1,592 @@
+<!-- FLOATING NAVBAR / HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-beige-100/90 backdrop-blur-md border-b border-brand-beige-200/50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a (click)="scrollToSection('hero')" class="cursor-pointer group flex flex-col justify-center">
+      <span class="font-serif text-2xl tracking-[0.2em] font-semibold text-brand-brown-900 group-hover:text-brand-gold-600 transition-colors">SERENITY</span>
+      <span class="text-[0.6rem] tracking-[0.4em] text-brand-gold-500 font-sans -mt-1 group-hover:text-brand-brown-800 transition-colors">FOUND VILLA</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center space-x-10 text-sm tracking-[0.15em] font-sans font-medium text-brand-brown-800/80">
+      <a (click)="scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Home</a>
+      <a (click)="scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">The Villa</a>
+      <a (click)="scrollToSection('amenities')" class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Amenities</a>
+      <a (click)="scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Book Now</a>
+      <a (click)="scrollToSection('contact')" class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Contact</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button (click)="toggleMobileMenu()" class="md:hidden text-brand-brown-900 focus:outline-none p-2" aria-label="Toggle menu">
+      <i class="fa-solid" [class.fa-bars]="!isMobileMenuOpen" [class.fa-xmark]="isMobileMenuOpen" class="text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Navigation -->
+  @if (isMobileMenuOpen) {
+    <div class="md:hidden bg-brand-beige-100 border-t border-brand-beige-200 shadow-lg px-6 py-8 animate-fadeIn">
+      <nav class="flex flex-col space-y-6 text-base tracking-[0.2em] font-sans font-medium text-brand-brown-900 uppercase">
+        <a (click)="scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Home</a>
+        <a (click)="scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">The Villa</a>
+        <a (click)="scrollToSection('amenities')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Amenities</a>
+        <a (click)="scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Book Now</a>
+        <a (click)="scrollToSection('contact')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Contact</a>
+      </nav>
+    </div>
+  }
+</header>
+
+<!-- HERO / HOME SECTION -->
+<section id="hero" class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
+  <!-- Optimized Hero Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img ngSrc="images/villa_entrance.png" fill priority alt="Serenity Found Villa Open Gate Entrance" class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05]" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-black/30"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center text-white max-w-4xl mx-auto flex flex-col items-center">
+    <h1 class="font-serif text-5xl md:text-8xl tracking-[0.2em] uppercase text-shadow-hero font-light mb-6 animate-slideUp">
+      SERENITY<br>FOUND
+    </h1>
+    
+    <button (click)="scrollToSection('villa')" class="mt-8 px-10 py-4 bg-white text-brand-brown-900 border border-white hover:bg-transparent hover:text-white transition-all duration-300 font-sans text-sm tracking-[0.25em] uppercase font-semibold shadow-lg hover:shadow-2xl">
+      EXPLORE OUR OASIS
+    </button>
+  </div>
+
+  <!-- Social Icons (Bottom Center) -->
+  <div class="absolute bottom-12 left-0 w-full z-10 flex justify-center space-x-8 text-white/80">
+    <a href="https://facebook.com" target="_blank" (click)="onSocialClick('facebook')" class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')" class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')" class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Twitter">
+      <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')" class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="YouTube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+  </div>
+</section>
+
+<!-- THE VILLA SECTION -->
+<section id="villa" class="py-24 bg-brand-beige-50 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- Left Column: Copy -->
+    <div class="space-y-8">
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Boutique Experience</span>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">
+        A Sanctuary of Quiet Elegance
+      </h2>
+      <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base md:text-lg">
+        Serenity Found is a luxurious boutique retreat nestled in a secluded landscape, designed for those seeking absolute privacy and aesthetic refinement. Framed by our signature open wooden gate, the property hosts a modern architecture blending raw bricks, sleek white arches, and natural timbers. 
+      </p>
+      <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base">
+        Indulge in spacious, sun-drenched private suites curated with natural fibers, organic amenities, and premium bedding. Wander through the lush manicured lawns or dissolve the afternoon in the therapeutic infinity pool that hangs over a scenic tropical background. Here, luxury is not loud—it is felt in the absolute silence, the warm breeze, and the stillness of time.
+      </p>
+      <div class="pt-4">
+        <button (click)="scrollToSection('book')" class="px-8 py-3.5 bg-brand-gold-500 text-white hover:bg-brand-gold-600 transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-medium shadow-md">
+          RESERVE YOUR STAY
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Premium Showcase Images -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+      <!-- Decor Accent Circle -->
+      <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full border border-brand-gold-500/20 hidden xl:block"></div>
+      
+      <!-- Image 1: Room -->
+      <div class="space-y-6">
+        <div class="overflow-hidden shadow-lg rounded-sm relative aspect-[4/5]">
+          <img ngSrc="images/villa_room.png" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" alt="Boutique Suite Bed" class="object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <h3 class="font-serif text-lg tracking-wide text-brand-brown-900 italic text-center">Suite Sanctuary</h3>
+      </div>
+      
+      <!-- Image 2: Pool -->
+      <div class="space-y-6 sm:mt-12">
+        <div class="overflow-hidden shadow-lg rounded-sm relative aspect-[4/5]">
+          <img ngSrc="images/villa_pool.png" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" alt="Infinity Pool view" class="object-cover hover:scale-105 transition-transform duration-700" />
+        </div>
+        <h3 class="font-serif text-lg tracking-wide text-brand-brown-900 italic text-center">Infinity Deck</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES SECTION -->
+<section id="amenities" class="py-24 bg-brand-beige-100 px-6 border-y border-brand-beige-200/50">
+  <div class="max-w-7xl mx-auto text-center max-w-2xl mb-16">
+    <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Curated Comforts</span>
+    <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">AMENITIES</h2>
+    <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
+  </div>
+
+  <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <!-- Pool -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-water-ladder"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Infinity Pool</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">A breathtaking crystal-clear infinity pool with spectacular panoramas and a sprawling sun deck.</p>
+    </div>
+
+    <!-- Steam -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-wind"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Steam Lounge</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">A custom thermal steam and sauna room crafted to detoxify your body and calm the senses.</p>
+    </div>
+
+    <!-- Garden -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Lush Gardens</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">A vibrant landscape of local plants and private pathways perfect for mindful morning strolls.</p>
+    </div>
+
+    <!-- Bath -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-bath"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Luxury Baths</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">Signature freestanding tub retreats configured with botanical bath infusions and natural stone.</p>
+    </div>
+
+    <!-- Satellite TV -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-tv"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Smart Satellite</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">High-speed satellite connectivity, smart screens, and curated audio throughout the villa.</p>
+    </div>
+
+    <!-- Wellness -->
+    <div class="bg-white/80 p-8 rounded-sm shadow-sm border border-brand-beige-200/50 hover:shadow-md transition-shadow flex flex-col items-center text-center group">
+      <div class="w-16 h-16 rounded-full bg-brand-beige-100 flex items-center justify-center text-brand-gold-600 text-2xl mb-6 group-hover:bg-brand-gold-500 group-hover:text-white transition-colors duration-300">
+        <i class="fa-solid fa-spa"></i>
+      </div>
+      <h3 class="font-serif text-xl text-brand-brown-900 font-medium mb-3">Wellness Spa</h3>
+      <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">On-request wellness rituals, custom oil massages, and private outdoor yoga setups.</p>
+    </div>
+  </div>
+
+  <div class="text-center flex flex-col items-center">
+    <button (click)="scrollToSection('book')" class="px-8 py-3.5 bg-brand-brown-900 text-white hover:bg-brand-gold-600 transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-md">
+      EXPLORE OUR OASIS
+    </button>
+
+    <!-- Social Links -->
+    <div class="flex justify-center space-x-6 text-brand-brown-800/70 mt-10">
+      <a href="https://facebook.com" target="_blank" (click)="onSocialClick('facebook')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="YouTube">
+        <i class="fa-brands fa-youtube"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK NOW SECTION -->
+<section id="book" class="py-24 bg-brand-beige-50 px-6">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Check Availability</span>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">BOOK NOW</h2>
+      <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
+    </div>
+
+    <!-- Booking Content: Split Layout -->
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Calendar Column (7/12 cols) -->
+      <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-sm shadow-md border border-brand-beige-200/50">
+        <!-- Calendar Header -->
+        <div class="flex items-center justify-between mb-8 pb-4 border-b border-brand-beige-100">
+          <button (click)="prevMonth()" class="text-brand-brown-900 hover:text-brand-gold-500 text-lg transition-colors p-2 focus:outline-none" aria-label="Previous month">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <span class="font-serif text-2xl font-semibold tracking-wide text-brand-brown-900">{{ monthYearLabel }}</span>
+          <button (click)="nextMonth()" class="text-brand-brown-900 hover:text-brand-gold-500 text-lg transition-colors p-2 focus:outline-none" aria-label="Next month">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Weekdays Grid -->
+        <div class="grid grid-cols-7 gap-2 text-center mb-4 text-xs font-semibold text-brand-brown-800/60 uppercase tracking-widest">
+          @for (dayName of weekDays; track dayName) {
+            <div>{{ dayName }}</div>
+          }
+        </div>
+
+        <!-- Days Grid -->
+        <div class="grid grid-cols-7 gap-2">
+          @for (day of calendarDays; track day.date.getTime()) {
+            <button
+              (click)="selectDate(day)"
+              [disabled]="day.isPast"
+              class="relative aspect-square flex items-center justify-center text-sm font-sans rounded-full transition-all focus:outline-none font-medium"
+              [class.text-brand-brown-800/20]="!day.isCurrentMonth && !day.isSelected && !day.isInRange"
+              [class.text-brand-brown-900]="day.isCurrentMonth && !day.isSelected && !day.isInRange && !day.isPast"
+              [class.bg-brand-gold-500]="day.isSelected"
+              [class.text-white]="day.isSelected"
+              [class.bg-brand-beige-200/60]="day.isInRange && !day.isSelected"
+              [class.text-brand-brown-900]="day.isInRange && !day.isSelected"
+              [class.cursor-not-allowed]="day.isPast"
+              [class.text-brand-brown-800/20]="day.isPast"
+              [class.hover:bg-brand-beige-200]="!day.isSelected && !day.isPast"
+              [class.font-bold]="day.isToday && !day.isSelected"
+            >
+              <!-- Today indicator dot -->
+              @if (day.isToday && !day.isSelected) {
+                <span class="absolute bottom-1 w-1 h-1 bg-brand-gold-500 rounded-full"></span>
+              }
+              
+              {{ day.dayNumber }}
+            </button>
+          }
+        </div>
+
+        <!-- Selection Info Display -->
+        <div class="mt-8 pt-6 border-t border-brand-beige-100 flex flex-col sm:flex-row justify-between text-xs tracking-wider text-brand-brown-800/70 font-sans space-y-3 sm:space-y-0">
+          <div>
+            <span class="font-semibold block uppercase text-[0.65rem] text-brand-gold-600 mb-1">Check-in Date</span>
+            <span class="text-sm font-medium text-brand-brown-900">{{ getFormattedDate(checkInDate) || 'Please select on calendar' }}</span>
+          </div>
+          <div>
+            <span class="font-semibold block uppercase text-[0.65rem] text-brand-gold-600 mb-1">Check-out Date</span>
+            <span class="text-sm font-medium text-brand-brown-900">{{ getFormattedDate(checkOutDate) || 'Please select on calendar' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Column (5/12 cols) -->
+      <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-sm shadow-md border border-brand-beige-200/50 flex flex-col">
+        <h3 class="font-serif text-2xl text-brand-brown-900 font-light mb-6 border-b border-brand-beige-100 pb-3">Guest Details</h3>
+        
+        <form (ngSubmit)="onConfirmBooking()" class="space-y-5 flex-grow">
+          <!-- First Name -->
+          <div>
+            <label for="firstName" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              [(ngModel)]="bookingForm.firstName"
+              required
+              placeholder="e.g. John"
+              class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30"
+            />
+          </div>
+
+          <!-- Last Name -->
+          <div>
+            <label for="lastName" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              [(ngModel)]="bookingForm.lastName"
+              required
+              placeholder="e.g. Doe"
+              class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="bookingForm.email"
+              required
+              placeholder="e.g. john.doe@example.com"
+              class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30"
+            />
+          </div>
+
+          <!-- Option Select -->
+          <div>
+            <label for="bookingOption" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Booking Option</label>
+            <div class="relative">
+              <select
+                id="bookingOption"
+                name="bookingOption"
+                [(ngModel)]="bookingForm.bookingOption"
+                class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors appearance-none cursor-pointer text-brand-brown-900"
+              >
+                <option value="Master Suite">Master Suite (Lakeside)</option>
+                <option value="Luxury Pavilion">Luxury Pavilion (Garden)</option>
+                <option value="Entire Villa">Entire Villa Retreat</option>
+              </select>
+              <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-brand-brown-800/60">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Notifications -->
+          @if (bookingStatus.type) {
+            <div
+              class="p-4 text-xs tracking-wide rounded-sm font-sans"
+              [class.bg-green-50]="bookingStatus.type === 'success'"
+              [class.text-green-800]="bookingStatus.type === 'success'"
+              [class.border]="bookingStatus.type === 'success'"
+              [class.border-green-200]="bookingStatus.type === 'success'"
+              [class.bg-red-50]="bookingStatus.type === 'error'"
+              [class.text-red-800]="bookingStatus.type === 'error'"
+              [class.border]="bookingStatus.type === 'error'"
+              [class.border-red-200]="bookingStatus.type === 'error'"
+              [class.bg-blue-50]="bookingStatus.type === 'info'"
+              [class.text-blue-800]="bookingStatus.type === 'info'"
+              [class.border]="bookingStatus.type === 'info'"
+              [class.border-blue-200]="bookingStatus.type === 'info'"
+            >
+              {{ bookingStatus.message }}
+            </div>
+          }
+
+          <!-- Submit Button -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="w-full py-4 bg-brand-gold-500 hover:bg-brand-gold-600 text-white font-sans text-xs tracking-[0.25em] font-semibold uppercase rounded-sm shadow-md transition-colors duration-300 focus:outline-none"
+            >
+              CONFIRM BOOKING
+            </button>
+          </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT US SECTION -->
+<section id="contact" class="py-24 bg-brand-beige-100 px-6 border-t border-brand-beige-200/50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Get in Touch</span>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">CONTACT US</h2>
+      <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+      <!-- Address Details (5/12 cols) -->
+      <div class="lg:col-span-5 bg-white p-8 rounded-sm shadow-md border border-brand-beige-200/50 flex flex-col justify-between space-y-12">
+        <div class="space-y-8">
+          <h3 class="font-serif text-3xl text-brand-brown-900 font-light pb-4 border-b border-brand-beige-100">Location</h3>
+          
+          <!-- Address -->
+          <div class="flex items-start space-x-5 font-sans">
+            <div class="text-brand-gold-600 text-lg mt-1 w-6">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <span class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">Address</span>
+              <span class="text-sm text-brand-brown-900 font-medium leading-relaxed">
+                123 Serenity Lane,<br>
+                Oasis City, OC 54321
+              </span>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start space-x-5 font-sans">
+            <div class="text-brand-gold-600 text-lg mt-1 w-6">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <span class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">Phone</span>
+              <span class="text-sm text-brand-brown-900 font-medium">+1 (555) 123-4567</span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="flex items-start space-x-5 font-sans">
+            <div class="text-brand-gold-600 text-lg mt-1 w-6">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <span class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">Email</span>
+              <span class="text-sm text-brand-brown-900 font-medium">info&#64;serenityfound.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Icons (Bottom Left) -->
+        <div class="flex space-x-6 text-brand-brown-800/50 border-t border-brand-beige-100 pt-6">
+          <a href="https://facebook.com" target="_blank" (click)="onSocialClick('facebook')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')" class="hover:text-brand-gold-600 transition-colors text-base" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map & Message Form Column (7/12 cols) -->
+      <div class="lg:col-span-7 bg-white p-8 rounded-sm shadow-md border border-brand-beige-200/50 flex flex-col justify-between space-y-8">
+        
+        <!-- Google Map Container -->
+        <div class="w-full h-64 border border-brand-beige-200 shadow-inner overflow-hidden rounded-sm relative">
+          <!-- Stylized map iframe with custom pointer events for smooth container scrolling -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12093.856985040683!2d-73.98773129999999!3d40.73061009999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQzJzUwLjIiTiA3M8KwNTknMTUuOCJX!5e0!3m2!1sen!2sus!4v1621212121212!5m2!1sen!2sus"
+            class="absolute inset-0 w-full h-full border-0 grayscale-[40%] contrast-[110%] brightness-[95%]"
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Quick Form -->
+        <form (ngSubmit)="onSendMessage()" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Name -->
+            <div>
+              <label for="contactName" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Name</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                [(ngModel)]="contactForm.name"
+                required
+                placeholder="Your Name"
+                class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30"
+              />
+            </div>
+            
+            <!-- Email -->
+            <div>
+              <label for="contactEmail" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Email</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                [(ngModel)]="contactForm.email"
+                required
+                placeholder="Your Email"
+                class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30"
+              />
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="contactMessage" class="block text-xs font-semibold tracking-widest text-brand-brown-800/60 uppercase mb-2">Message</label>
+            <textarea
+              id="contactMessage"
+              name="message"
+              [(ngModel)]="contactForm.message"
+              required
+              rows="4"
+              placeholder="How can we assist you?"
+              class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors placeholder:text-brand-brown-800/30 resize-none"
+            ></textarea>
+          </div>
+
+          <!-- Status Notifications -->
+          @if (contactStatus.type) {
+            <div
+              class="p-4 text-xs tracking-wide rounded-sm font-sans"
+              [class.bg-green-50]="contactStatus.type === 'success'"
+              [class.text-green-800]="contactStatus.type === 'success'"
+              [class.border]="contactStatus.type === 'success'"
+              [class.border-green-200]="contactStatus.type === 'success'"
+              [class.bg-red-50]="contactStatus.type === 'error'"
+              [class.text-red-800]="contactStatus.type === 'error'"
+              [class.border]="contactStatus.type === 'error'"
+              [class.border-red-200]="contactStatus.type === 'error'"
+              [class.bg-blue-50]="contactStatus.type === 'info'"
+              [class.text-blue-800]="contactStatus.type === 'info'"
+              [class.border]="contactStatus.type === 'info'"
+              [class.border-blue-200]="contactStatus.type === 'info'"
+            >
+              {{ contactStatus.message }}
+            </div>
+          }
+
+          <!-- Submit -->
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full py-4 bg-brand-brown-900 hover:bg-brand-gold-500 text-white font-sans text-xs tracking-[0.25em] font-semibold uppercase rounded-sm shadow-md transition-colors duration-300 focus:outline-none"
+            >
+              SEND MESSAGE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-brand-brown-900 text-[#ede8dc] py-16 px-6 font-sans">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 text-center md:text-left">
+    <!-- Brand -->
+    <div>
+      <h4 class="font-serif text-xl tracking-[0.2em] font-semibold text-white">SERENITY FOUND</h4>
+      <p class="text-xs tracking-wider text-[#ede8dc]/50 mt-1 uppercase">Boutique Luxury Villa</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs tracking-[0.15em] font-medium uppercase text-[#ede8dc]/80">
+      <a (click)="scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Home</a>
+      <a (click)="scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">The Villa</a>
+      <a (click)="scrollToSection('amenities')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Amenities</a>
+      <a (click)="scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Book Now</a>
+      <a (click)="scrollToSection('contact')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Contact</a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-xs text-[#ede8dc]/40 tracking-wider">
+      &copy; 2026 Serenity Found. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP CONNECT BADGE -->
+<a 
+  [href]="WHATSAPP_URL"
+  target="_blank" 
+  (click)="onWhatsAppClick()"
+  class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white flex items-center space-x-3 px-5 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group cursor-pointer focus:outline-none"
+  aria-label="Connect on WhatsApp"
+>
+  <span class="text-xs tracking-widest font-sans font-semibold uppercase max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 ease-out whitespace-nowrap">
+    WhatsApp connect
+  </span>
+  <span class="font-sans text-xs tracking-widest font-semibold uppercase block md:hidden lg:block group-hover:hidden transition-all duration-300">
+    WhatsApp connect
+  </span>
+  <i class="fa-brands fa-whatsapp text-2xl"></i>
+</a>

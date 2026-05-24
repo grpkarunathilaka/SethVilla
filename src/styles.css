@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  
+  --color-brand-beige-50: #fdfdfc;
+  --color-brand-beige-100: #f7f4eb;
+  --color-brand-beige-200: #ede8dc;
+  --color-brand-beige-300: #e0d8c3;
+  --color-brand-gold-500: #c5a880;
+  --color-brand-gold-600: #b49367;
+  --color-brand-gold-700: #93744a;
+  --color-brand-brown-800: #4a3e36;
+  --color-brand-brown-900: #2c2724;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f7f4eb;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a880;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b49367;
+}
+
+/* Additional utility classes for vintage shadows & text effects */
+.text-shadow-premium {
+  text-shadow: 2px 2px 4px rgba(74, 62, 54, 0.15);
+}
+
+.text-shadow-hero {
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
