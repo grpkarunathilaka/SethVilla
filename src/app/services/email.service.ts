@@ -25,11 +25,11 @@ export class EmailService {
   private readonly TEMPLATE_ID_BOOKING = 'template_booking_placeholder';
   private readonly TEMPLATE_ID_CONTACT = 'template_contact_placeholder';
   private readonly PUBLIC_KEY = 'public_key_placeholder';
-  
-  // Hardcoded owner's email address
-  public readonly OWNER_EMAIL = 'info@serenityfound.com';
 
-  constructor() {}
+  // Hardcoded owner's email address
+  public readonly OWNER_EMAIL = 'grpkarunathilaka@gmail.com';
+
+  constructor() { }
 
   /**
    * Helper to check if credentials are still placeholder values.
