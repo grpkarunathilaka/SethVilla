@@ -105,9 +105,9 @@ export class EmailService {
   }
 
   private triggerMailtoBooking(details: BookingDetails): void {
-    const subject = encodeURIComponent(`Booking Inquiry: Serenity Found Villa`);
+    const subject = encodeURIComponent(`Booking Inquiry: Seth Villa Matara`);
     const body = encodeURIComponent(
-      `Hello Serenity Found,\n\n` +
+      `Hello Seth Villa Matara,\n\n` +
       `I would like to inquire about booking the villa. Here are my details:\n\n` +
       `- Name: ${details.firstName} ${details.lastName}\n` +
       `- Email: ${details.email}\n` +
@@ -124,7 +124,7 @@ export class EmailService {
   private triggerMailtoContact(details: ContactDetails): void {
     const subject = encodeURIComponent(`Contact Inquiry from ${details.name}`);
     const body = encodeURIComponent(
-      `Hello Serenity Found,\n\n` +
+      `Hello Seth Villa Matara,\n\n` +
       `You have received a new contact message:\n\n` +
       `- Name: ${details.name}\n` +
       `- Email: ${details.email}\n` +

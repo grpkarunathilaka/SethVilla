@@ -27,7 +27,7 @@ export class App implements OnInit {
 
   // Hardcoded WhatsApp number (e.g. +1 555 123-4567, without spaces/plus for URL)
   public readonly WHATSAPP_NUMBER = '15551234567';
-  public readonly WHATSAPP_URL = `https://wa.me/${this.WHATSAPP_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20booking%20Serenity%20Found%20villa.`;
+  public readonly WHATSAPP_URL = `https://wa.me/${this.WHATSAPP_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20booking%20Seth%20Villa%20Matara.`;
 
   // Booking Form State
   bookingForm = {
