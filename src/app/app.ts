@@ -26,7 +26,7 @@ export class App implements OnInit {
   protected readonly title = signal('seth-villa');
 
   // Hardcoded WhatsApp number (e.g. +1 555 123-4567, without spaces/plus for URL)
-  public readonly WHATSAPP_NUMBER = '15551234567';
+  public readonly WHATSAPP_NUMBER = '+61413955191';
   public readonly WHATSAPP_URL = `https://wa.me/${this.WHATSAPP_NUMBER}?text=Hello!%20I%20would%20like%20to%20inquire%20about%20booking%20Seth%20Villa%20Matara.`;
 
   // Booking Form State
@@ -48,7 +48,7 @@ export class App implements OnInit {
   currentDate = new Date();
   calendarMonth = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
   weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-  
+
   checkInDate: Date | null = null;
   checkOutDate: Date | null = null;
   calendarDays: CalendarDay[] = [];
@@ -63,7 +63,7 @@ export class App implements OnInit {
   constructor(
     private emailService: EmailService,
     private analyticsService: AnalyticsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.generateCalendar();
@@ -109,13 +109,13 @@ export class App implements OnInit {
   generateCalendar() {
     const year = this.calendarMonth.getFullYear();
     const month = this.calendarMonth.getMonth();
-    
+
     // First day of current month
     const firstDayIndex = new Date(year, month, 1).getDay();
-    
+
     // Last day of current month
     const totalDays = new Date(year, month + 1, 0).getDate();
-    
+
     // Last day of previous month
     const prevTotalDays = new Date(year, month, 0).getDate();
 
@@ -148,10 +148,10 @@ export class App implements OnInit {
   private createCalendarDay(date: Date, isCurrentMonth: boolean, today: Date): CalendarDay {
     const dateMs = date.getTime();
     const isPast = dateMs < today.getTime();
-    
+
     const isStart = !!this.checkInDate && this.isSameDay(date, this.checkInDate);
     const isEnd = !!this.checkOutDate && this.isSameDay(date, this.checkOutDate);
-    
+
     let isInRange = false;
     if (this.checkInDate && this.checkOutDate) {
       isInRange = dateMs > this.checkInDate.getTime() && dateMs < this.checkOutDate.getTime();
@@ -172,8 +172,8 @@ export class App implements OnInit {
 
   isSameDay(d1: Date, d2: Date): boolean {
     return d1.getFullYear() === d2.getFullYear() &&
-           d1.getMonth() === d2.getMonth() &&
-           d1.getDate() === d2.getDate();
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate();
   }
 
   selectDate(day: CalendarDay) {
@@ -257,7 +257,7 @@ export class App implements OnInit {
           message: 'Email client opened with pre-filled booking details. Please send the draft!'
         };
       }
-      
+
       // Reset forms
       this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Master Suite' };
       this.checkInDate = null;
@@ -288,7 +288,7 @@ export class App implements OnInit {
     };
 
     this.contactStatus = { type: 'info', message: 'Sending message...' };
-    
+
     this.analyticsService.trackEvent('contact_submit_attempt', { name: contactDetails.name });
 
     const result = await this.emailService.sendContact(contactDetails);
