@@ -242,31 +242,39 @@ export class App implements OnInit {
       duration: `${bookingDetails.checkIn} - ${bookingDetails.checkOut}`
     });
 
-    const result = await this.emailService.sendBooking(bookingDetails);
+    try {
+      const result = await this.emailService.sendBooking(bookingDetails);
 
-    if (result.success) {
-      this.analyticsService.trackEvent('booking_submit_success', { method: result.method });
-      if (result.method === 'web3forms') {
-        this.bookingStatus = {
-          type: 'success',
-          message: 'Booking request sent successfully! We will contact you soon.'
-        };
+      if (result.success) {
+        this.analyticsService.trackEvent('booking_submit_success', { method: result.method });
+        if (result.method === 'web3forms') {
+          this.bookingStatus = {
+            type: 'success',
+            message: 'Booking request sent successfully! We will contact you soon.'
+          };
+        } else {
+          this.bookingStatus = {
+            type: 'success',
+            message: 'Email client opened with pre-filled booking details. Please send the draft!'
+          };
+        }
+
+        // Reset forms
+        this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Master Suite' };
+        this.checkInDate = null;
+        this.checkOutDate = null;
+        this.generateCalendar();
       } else {
         this.bookingStatus = {
-          type: 'success',
-          message: 'Email client opened with pre-filled booking details. Please send the draft!'
+          type: 'error',
+          message: 'Failed to process booking request. Please try contacting us directly.'
         };
       }
-
-      // Reset forms
-      this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Master Suite' };
-      this.checkInDate = null;
-      this.checkOutDate = null;
-      this.generateCalendar();
-    } else {
+    } catch (err) {
+      console.error('Error confirming booking:', err);
       this.bookingStatus = {
         type: 'error',
-        message: 'Failed to process booking request. Please try contacting us directly.'
+        message: 'An unexpected error occurred. Please try contacting us directly.'
       };
     }
   }
@@ -291,26 +299,34 @@ export class App implements OnInit {
 
     this.analyticsService.trackEvent('contact_submit_attempt', { name: contactDetails.name });
 
-    const result = await this.emailService.sendContact(contactDetails);
+    try {
+      const result = await this.emailService.sendContact(contactDetails);
 
-    if (result.success) {
-      this.analyticsService.trackEvent('contact_submit_success', { method: result.method });
-      if (result.method === 'web3forms') {
-        this.contactStatus = {
-          type: 'success',
-          message: 'Message sent successfully! We will respond shortly.'
-        };
+      if (result.success) {
+        this.analyticsService.trackEvent('contact_submit_success', { method: result.method });
+        if (result.method === 'web3forms') {
+          this.contactStatus = {
+            type: 'success',
+            message: 'Message sent successfully! We will respond shortly.'
+          };
+        } else {
+          this.contactStatus = {
+            type: 'success',
+            message: 'Email client opened with message draft. Please send the draft!'
+          };
+        }
+        this.contactForm = { name: '', email: '', message: '' };
       } else {
         this.contactStatus = {
-          type: 'success',
-          message: 'Email client opened with message draft. Please send the draft!'
+          type: 'error',
+          message: 'Failed to send message. Please try emailing directly.'
         };
       }
-      this.contactForm = { name: '', email: '', message: '' };
-    } else {
+    } catch (err) {
+      console.error('Error sending message:', err);
       this.contactStatus = {
         type: 'error',
-        message: 'Failed to send message. Please try emailing directly.'
+        message: 'An unexpected error occurred. Please try contacting us directly.'
       };
     }
   }

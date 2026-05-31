@@ -106,6 +106,7 @@ export class EmailService {
   }
 
   private triggerMailtoBooking(details: BookingDetails): void {
+    if (typeof window === 'undefined') return;
     const subject = encodeURIComponent(`Booking Inquiry: Seth Villa Matara`);
     const body = encodeURIComponent(
       `Hello Seth Villa Matara,\n\n` +
@@ -123,6 +124,7 @@ export class EmailService {
   }
 
   private triggerMailtoContact(details: ContactDetails): void {
+    if (typeof window === 'undefined') return;
     const subject = encodeURIComponent(`Contact Inquiry from ${details.name}`);
     const body = encodeURIComponent(
       `Hello Seth Villa Matara,\n\n` +
