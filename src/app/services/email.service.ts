@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import emailjs from '@emailjs/browser';
 
 export interface BookingDetails {
   firstName: string;
@@ -20,11 +19,7 @@ export interface ContactDetails {
   providedIn: 'root',
 })
 export class EmailService {
-  // Developer should replace these placeholders with real EmailJS Credentials
-  private readonly SERVICE_ID = 'service_placeholder';
-  private readonly TEMPLATE_ID_BOOKING = 'template_booking_placeholder';
-  private readonly TEMPLATE_ID_CONTACT = 'template_contact_placeholder';
-  private readonly PUBLIC_KEY = 'public_key_placeholder';
+  private readonly WEB3FORMS_ACCESS_KEY = '40d4aa47-e377-452b-be00-7f8741535d95';
 
   // Hardcoded owner's email address
   public readonly OWNER_EMAIL = 'grpkarunathilaka@gmail.com';
@@ -32,75 +27,81 @@ export class EmailService {
   constructor() { }
 
   /**
-   * Helper to check if credentials are still placeholder values.
+   * Send booking inquiry. Falls back to mailto if Web3Forms fails.
    */
-  private hasRealCredentials(): boolean {
-    return (
-      this.SERVICE_ID !== 'service_placeholder' &&
-      this.PUBLIC_KEY !== 'public_key_placeholder'
-    );
-  }
+  async sendBooking(details: BookingDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: this.WEB3FORMS_ACCESS_KEY,
+          subject: 'New Booking Inquiry - Seth Villa Matara',
+          from_name: `${details.firstName} ${details.lastName}`,
+          name: `${details.firstName} ${details.lastName}`,
+          email: details.email,
+          booking_option: details.bookingOption,
+          check_in: details.checkIn,
+          check_out: details.checkOut,
+          message: `Accommodation: ${details.bookingOption}\nCheck-in: ${details.checkIn}\nCheck-out: ${details.checkOut}`
+        })
+      });
 
-  /**
-   * Send booking inquiry. Falls back to mailto if EmailJS is not configured.
-   */
-  async sendBooking(details: BookingDetails): Promise<{ success: boolean; method: 'emailjs' | 'mailto'; error?: any }> {
-    if (this.hasRealCredentials()) {
-      try {
-        const response = await emailjs.send(
-          this.SERVICE_ID,
-          this.TEMPLATE_ID_BOOKING,
-          {
-            owner_email: this.OWNER_EMAIL,
-            client_name: `${details.firstName} ${details.lastName}`,
-            client_email: details.email,
-            booking_option: details.bookingOption,
-            check_in: details.checkIn,
-            check_out: details.checkOut,
-            notes: `Requested dates: ${details.checkIn} to ${details.checkOut}. Suite choice: ${details.bookingOption}.`
-          },
-          this.PUBLIC_KEY
-        );
-        return { success: response.status === 200, method: 'emailjs' };
-      } catch (err) {
-        console.error('EmailJS Booking failed, falling back to mailto:', err);
-        this.triggerMailtoBooking(details);
-        return { success: true, method: 'mailto', error: err };
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    } else {
-      // Fallback directly to mailto
+
+      const data = await response.json();
+      if (data.success) {
+        return { success: true, method: 'web3forms' };
+      } else {
+        throw new Error(data.message || 'Web3Forms booking submission failed');
+      }
+    } catch (err) {
+      console.error('Web3Forms Booking failed, falling back to mailto:', err);
       this.triggerMailtoBooking(details);
-      return { success: true, method: 'mailto' };
+      return { success: true, method: 'mailto', error: err };
     }
   }
 
   /**
-   * Send contact message. Falls back to mailto if EmailJS is not configured.
+   * Send contact message. Falls back to mailto if Web3Forms fails.
    */
-  async sendContact(details: ContactDetails): Promise<{ success: boolean; method: 'emailjs' | 'mailto'; error?: any }> {
-    if (this.hasRealCredentials()) {
-      try {
-        const response = await emailjs.send(
-          this.SERVICE_ID,
-          this.TEMPLATE_ID_CONTACT,
-          {
-            owner_email: this.OWNER_EMAIL,
-            from_name: details.name,
-            from_email: details.email,
-            message: details.message
-          },
-          this.PUBLIC_KEY
-        );
-        return { success: response.status === 200, method: 'emailjs' };
-      } catch (err) {
-        console.error('EmailJS Contact failed, falling back to mailto:', err);
-        this.triggerMailtoContact(details);
-        return { success: true, method: 'mailto', error: err };
+  async sendContact(details: ContactDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: this.WEB3FORMS_ACCESS_KEY,
+          subject: `Contact Inquiry from ${details.name} - Seth Villa Matara`,
+          from_name: details.name,
+          name: details.name,
+          email: details.email,
+          message: details.message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    } else {
-      // Fallback directly to mailto
+
+      const data = await response.json();
+      if (data.success) {
+        return { success: true, method: 'web3forms' };
+      } else {
+        throw new Error(data.message || 'Web3Forms contact submission failed');
+      }
+    } catch (err) {
+      console.error('Web3Forms Contact failed, falling back to mailto:', err);
       this.triggerMailtoContact(details);
-      return { success: true, method: 'mailto' };
+      return { success: true, method: 'mailto', error: err };
     }
   }
 

@@ -246,10 +246,10 @@ export class App implements OnInit {
 
     if (result.success) {
       this.analyticsService.trackEvent('booking_submit_success', { method: result.method });
-      if (result.method === 'emailjs') {
+      if (result.method === 'web3forms') {
         this.bookingStatus = {
           type: 'success',
-          message: 'Booking request sent successfully via EmailJS! We will contact you soon.'
+          message: 'Booking request sent successfully! We will contact you soon.'
         };
       } else {
         this.bookingStatus = {
@@ -295,10 +295,10 @@ export class App implements OnInit {
 
     if (result.success) {
       this.analyticsService.trackEvent('contact_submit_success', { method: result.method });
-      if (result.method === 'emailjs') {
+      if (result.method === 'web3forms') {
         this.contactStatus = {
           type: 'success',
-          message: 'Message sent successfully via EmailJS! We will respond shortly.'
+          message: 'Message sent successfully! We will respond shortly.'
         };
       } else {
         this.contactStatus = {
