@@ -30,6 +30,9 @@ export class EmailService {
    * Send booking inquiry. Falls back to mailto if Web3Forms fails.
    */
   async sendBooking(details: BookingDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -47,8 +50,11 @@ export class EmailService {
           check_in: details.checkIn,
           check_out: details.checkOut,
           message: `Accommodation: ${details.bookingOption}\nCheck-in: ${details.checkIn}\nCheck-out: ${details.checkOut}`
-        })
+        }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -61,6 +67,7 @@ export class EmailService {
         throw new Error(data.message || 'Web3Forms booking submission failed');
       }
     } catch (err) {
+      clearTimeout(timeoutId);
       console.error('Web3Forms Booking failed, falling back to mailto:', err);
       this.triggerMailtoBooking(details);
       return { success: true, method: 'mailto', error: err };
@@ -71,6 +78,9 @@ export class EmailService {
    * Send contact message. Falls back to mailto if Web3Forms fails.
    */
   async sendContact(details: ContactDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -85,8 +95,11 @@ export class EmailService {
           name: details.name,
           email: details.email,
           message: details.message
-        })
+        }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -99,6 +112,7 @@ export class EmailService {
         throw new Error(data.message || 'Web3Forms contact submission failed');
       }
     } catch (err) {
+      clearTimeout(timeoutId);
       console.error('Web3Forms Contact failed, falling back to mailto:', err);
       this.triggerMailtoContact(details);
       return { success: true, method: 'mailto', error: err };
