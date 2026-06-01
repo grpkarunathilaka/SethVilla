@@ -89,6 +89,13 @@ export class App implements OnInit {
     }
   }
 
+  // Select a room and scroll to the booking section
+  selectRoomAndScroll(roomName: string) {
+    this.bookingForm.bookingOption = roomName;
+    this.scrollToSection('book');
+    this.analyticsService.trackEvent('room_reserve_click', { room: roomName });
+  }
+
   // Calendar Logic
   get monthYearLabel(): string {
     return this.calendarMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
