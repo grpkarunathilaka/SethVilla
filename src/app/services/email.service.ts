@@ -27,96 +27,60 @@ export class EmailService {
   constructor() { }
 
   /**
-   * Send booking inquiry. Falls back to mailto if Web3Forms fails.
+   * Send booking inquiry. Initiates Web3Forms background submit and returns immediately.
    */
   async sendBooking(details: BookingDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    // Fire-and-forget fetch request in the background
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: this.WEB3FORMS_ACCESS_KEY,
+        subject: 'New Booking Inquiry - Seth Villa Matara',
+        from_name: `${details.firstName} ${details.lastName}`,
+        name: `${details.firstName} ${details.lastName}`,
+        email: details.email,
+        booking_option: details.bookingOption,
+        check_in: details.checkIn,
+        check_out: details.checkOut,
+        message: `Accommodation: ${details.bookingOption}\nCheck-in: ${details.checkIn}\nCheck-out: ${details.checkOut}`
+      })
+    }).catch(err => {
+      console.error('Background Web3Forms Booking failed:', err);
+    });
 
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: this.WEB3FORMS_ACCESS_KEY,
-          subject: 'New Booking Inquiry - Seth Villa Matara',
-          from_name: `${details.firstName} ${details.lastName}`,
-          name: `${details.firstName} ${details.lastName}`,
-          email: details.email,
-          booking_option: details.bookingOption,
-          check_in: details.checkIn,
-          check_out: details.checkOut,
-          message: `Accommodation: ${details.bookingOption}\nCheck-in: ${details.checkIn}\nCheck-out: ${details.checkOut}`
-        }),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.success) {
-        return { success: true, method: 'web3forms' };
-      } else {
-        throw new Error(data.message || 'Web3Forms booking submission failed');
-      }
-    } catch (err) {
-      clearTimeout(timeoutId);
-      console.error('Web3Forms Booking failed, falling back to mailto:', err);
-      this.triggerMailtoBooking(details);
-      return { success: true, method: 'mailto', error: err };
-    }
+    // Return success immediately to update the UI without waiting
+    return { success: true, method: 'web3forms' };
   }
 
   /**
-   * Send contact message. Falls back to mailto if Web3Forms fails.
+   * Send contact message. Initiates Web3Forms background submit and returns immediately.
    */
   async sendContact(details: ContactDetails): Promise<{ success: boolean; method: 'web3forms' | 'mailto'; error?: any }> {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    // Fire-and-forget fetch request in the background
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: this.WEB3FORMS_ACCESS_KEY,
+        subject: `Contact Inquiry from ${details.name} - Seth Villa Matara`,
+        from_name: details.name,
+        name: details.name,
+        email: details.email,
+        message: details.message
+      })
+    }).catch(err => {
+      console.error('Background Web3Forms Contact failed:', err);
+    });
 
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: this.WEB3FORMS_ACCESS_KEY,
-          subject: `Contact Inquiry from ${details.name} - Seth Villa Matara`,
-          from_name: details.name,
-          name: details.name,
-          email: details.email,
-          message: details.message
-        }),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      if (data.success) {
-        return { success: true, method: 'web3forms' };
-      } else {
-        throw new Error(data.message || 'Web3Forms contact submission failed');
-      }
-    } catch (err) {
-      clearTimeout(timeoutId);
-      console.error('Web3Forms Contact failed, falling back to mailto:', err);
-      this.triggerMailtoContact(details);
-      return { success: true, method: 'mailto', error: err };
-    }
+    // Return success immediately to update the UI without waiting
+    return { success: true, method: 'web3forms' };
   }
 
   private triggerMailtoBooking(details: BookingDetails): void {
