@@ -1,6 +1,7 @@
 import { Component, OnInit, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgOptimizedImage } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { EmailService, BookingDetails, ContactDetails } from './services/email.service';
 import { AnalyticsService } from './services/analytics.service';
 
@@ -62,12 +63,27 @@ export class App implements OnInit {
 
   constructor(
     private emailService: EmailService,
-    private analyticsService: AnalyticsService
+    private analyticsService: AnalyticsService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit() {
     this.generateCalendar();
     this.analyticsService.trackPageView('Home', '/');
+
+    // Set SEO metadata dynamically for crawlers and browser tabs
+    this.titleService.setTitle('Seth Villa Matara | Boutique Luxury Villa Accommodation in Down South Sri Lanka');
+    
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Discover Seth Villa Matara, a luxury boutique villa in down south Sri Lanka. Offering premium accommodations, free Wi-Fi, air conditioning, and absolute privacy. Book your oasis today.'
+    });
+
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: 'Seth Villa Matara, Matara Accommodation, down south Sri Lanka Villa, boutique villa Matara, luxury villa Sri Lanka, Matara hotel, beach stay Sri Lanka'
+    });
   }
 
   // Mobile Navigation toggle

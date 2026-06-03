@@ -3,7 +3,7 @@
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-beige-100/90 backdrop-blur-md border-b border-brand-beige-200/50 shadow-sm">
   <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
     <!-- Logo -->
-    <a (click)="scrollToSection('hero')" class="cursor-pointer group flex flex-col justify-center">
+    <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer group flex flex-col justify-center" aria-label="Seth Villa Matara Logo Home">
       <span
         class="font-serif text-2xl tracking-[0.2em] font-semibold text-brand-brown-900 group-hover:text-brand-gold-600 transition-colors">SETH
         VILLA</span>
@@ -14,15 +14,15 @@
     <!-- Desktop Navigation Links -->
     <nav
       class="hidden md:flex items-center space-x-10 text-sm tracking-[0.15em] font-sans font-medium text-brand-brown-800/80">
-      <a (click)="scrollToSection('hero')"
+      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Home</a>
-      <a (click)="scrollToSection('villa')"
+      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">The Villa</a>
-      <a (click)="scrollToSection('amenities')"
+      <a href="#amenities" (click)="$event.preventDefault(); scrollToSection('amenities')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Amenities</a>
-      <a (click)="scrollToSection('book')"
+      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Book Now</a>
-      <a (click)="scrollToSection('contact')"
+      <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors uppercase py-2">Contact</a>
     </nav>
 
@@ -38,14 +38,12 @@
   <div class="md:hidden bg-brand-beige-100 border-t border-brand-beige-200 shadow-lg px-6 py-8 animate-fadeIn">
     <nav
       class="flex flex-col space-y-6 text-base tracking-[0.2em] font-sans font-medium text-brand-brown-900 uppercase">
-      <a (click)="scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Home</a>
-      <a (click)="scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">The
-        Villa</a>
-      <a (click)="scrollToSection('amenities')"
+      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Home</a>
+      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">The Villa</a>
+      <a href="#amenities" (click)="$event.preventDefault(); scrollToSection('amenities')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors">Amenities</a>
-      <a (click)="scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Book
-        Now</a>
-      <a (click)="scrollToSection('contact')"
+      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Book Now</a>
+      <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors">Contact</a>
     </nav>
   </div>
@@ -69,7 +67,8 @@
     </h1>
 
     <button (click)="scrollToSection('villa')"
-      class="mt-8 px-10 py-4 bg-white text-brand-brown-900 border border-white hover:bg-transparent hover:text-white transition-all duration-300 font-sans text-sm tracking-[0.25em] uppercase font-semibold shadow-lg hover:shadow-2xl">
+      class="mt-8 px-10 py-4 bg-white text-brand-brown-900 border border-white hover:bg-transparent hover:text-white transition-all duration-300 font-sans text-sm tracking-[0.25em] uppercase font-semibold shadow-lg hover:shadow-2xl"
+      aria-label="Explore Seth Villa Matara rooms and amenities">
       EXPLORE OUR OASIS
     </button>
   </div>
@@ -107,10 +106,7 @@
           A Sanctuary of Quiet Elegance
         </h2>
         <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base md:text-lg">
-          Seth Villa Matara is a luxurious boutique retreat nestled in a secluded landscape, designed for those seeking
-          absolute privacy and aesthetic refinement. Framed by our signature open wooden gate, the property hosts a
-          modern
-          architecture blending raw bricks, sleek white arches, and natural timbers.
+          Seth Villa Matara is a luxurious boutique retreat nestled in a secluded landscape in down south Sri Lanka, designed for those seeking absolute privacy, aesthetic refinement, and premium villa accommodation. Framed by our signature open wooden gate, the property hosts a modern architecture blending raw bricks, sleek white arches, and natural timbers.
         </p>
       </div>
       <div class="lg:col-span-5 border-l-2 border-brand-gold-500/30 pl-8 py-2">
@@ -123,8 +119,7 @@
 
     <!-- Rooms Heading -->
     <div class="text-center mb-12">
-      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Our
-        Sanctuary</span>
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Premium Villa Accommodation in Down South Sri Lanka</span>
       <h3 class="font-serif text-3xl tracking-[0.1em] text-brand-brown-900 font-light">LUXURIOUS ACCOMMODATIONS</h3>
       <div class="w-12 h-[1px] bg-brand-gold-500 mx-auto mt-4"></div>
     </div>
@@ -167,7 +162,8 @@
         </div>
         <div class="p-6 pt-0">
           <button (click)="selectRoomAndScroll('Double Room with Private Bathroom')"
-            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm">
+            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
+            aria-label="Reserve Double Room with Private Bathroom at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
@@ -207,7 +203,8 @@
         </div>
         <div class="p-6 pt-0">
           <button (click)="selectRoomAndScroll('Triple Room')"
-            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm">
+            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
+            aria-label="Reserve Triple Room at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
@@ -247,7 +244,8 @@
         </div>
         <div class="p-6 pt-0">
           <button (click)="selectRoomAndScroll('Standard Double Room')"
-            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm">
+            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
+            aria-label="Reserve Standard Double Room at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
@@ -410,7 +408,8 @@
 
   <div class="text-center flex flex-col items-center">
     <button (click)="scrollToSection('book')"
-      class="px-8 py-3.5 bg-brand-brown-900 text-white hover:bg-brand-gold-600 transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-md">
+      class="px-8 py-3.5 bg-brand-brown-900 text-white hover:bg-brand-gold-600 transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-md"
+      aria-label="Book your villa stay at Seth Villa Matara">
       EXPLORE OUR OASIS
     </button>
 
@@ -765,14 +764,12 @@
     <!-- Navigation -->
     <div
       class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs tracking-[0.15em] font-medium uppercase text-[#ede8dc]/80">
-      <a (click)="scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Home</a>
-      <a (click)="scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">The
-        Villa</a>
-      <a (click)="scrollToSection('amenities')"
+      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Home</a>
+      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">The Villa</a>
+      <a href="#amenities" (click)="$event.preventDefault(); scrollToSection('amenities')"
         class="cursor-pointer hover:text-brand-gold-500 transition-colors">Amenities</a>
-      <a (click)="scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Book
-        Now</a>
-      <a (click)="scrollToSection('contact')"
+      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Book Now</a>
+      <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')"
         class="cursor-pointer hover:text-brand-gold-500 transition-colors">Contact</a>
     </div>
 
