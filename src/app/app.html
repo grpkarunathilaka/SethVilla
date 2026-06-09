@@ -52,10 +52,18 @@
 
 <!-- HERO / HOME SECTION -->
 <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center px-4 overflow-hidden pt-20">
-  <!-- Optimized Hero Background Image -->
+  <!-- Optimized Hero Background Image / Video -->
   <div class="absolute inset-0 z-0">
+    <!-- Static Fallback/Mobile Hero Image -->
     <img ngSrc="images/villa_entrance.jpeg" fill priority alt="Seth Villa Matara Open Gate Entrance"
-      class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05]" />
+      class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-static-image" />
+    
+    <!-- Hero Video (Desktop Only) -->
+    <video autoplay loop muted playsinline poster="images/villa_entrance.jpeg"
+      class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-video">
+      <source src="videos/herovideo.mp4" type="video/mp4" />
+    </video>
+    
     <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-black/30"></div>
   </div>
 

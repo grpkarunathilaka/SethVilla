@@ -1,0 +1,19 @@
+/* Mobile screens (default): Show static image, hide video */
+.hero-static-image {
+  display: block;
+}
+
+.hero-video {
+  display: none;
+}
+
+/* Desktop screens (768px and up): Hide static image, show video */
+@media (min-width: 768px) {
+  .hero-static-image {
+    display: none;
+  }
+
+  .hero-video {
+    display: block;
+  }
+}
