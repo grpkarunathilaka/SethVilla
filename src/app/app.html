@@ -55,11 +55,11 @@
   <!-- Optimized Hero Background Image / Video -->
   <div class="absolute inset-0 z-0">
     <!-- Static Fallback/Mobile Hero Image -->
-    <img ngSrc="images/villa_entrance.jpeg" fill priority alt="Seth Villa Matara Open Gate Entrance"
+    <img ngSrc="images/villa_entrance.jpeg" fill priority alt="Seth Villa Matara Luxury Boutique Villa Entrance Sri Lanka"
       class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-static-image" />
     
     <!-- Hero Video (Desktop Only) -->
-    <video autoplay loop muted playsinline poster="images/villa_entrance.jpeg"
+    <video autoplay loop [muted]="true" playsinline poster="images/villa_entrance.jpeg"
       class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-video">
       <source src="videos/herovideo.mp4" type="video/mp4" />
     </video>
@@ -83,19 +83,19 @@
 
   <!-- Social Icons (Bottom Center) -->
   <div class="absolute bottom-12 left-0 w-full z-10 flex justify-center space-x-8 text-white/80">
-    <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" (click)="onSocialClick('facebook')"
+    <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('facebook')"
       class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
-    <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')"
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('instagram')"
       class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Instagram">
       <i class="fa-brands fa-instagram"></i>
     </a>
-    <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')"
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('twitter')"
       class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Twitter">
       <i class="fa-brands fa-twitter"></i>
     </a>
-    <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')"
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('youtube')"
       class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="YouTube">
       <i class="fa-brands fa-youtube"></i>
     </a>
@@ -108,10 +108,9 @@
     <!-- Top Row: Copy & Overview -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
       <div class="lg:col-span-7 space-y-6">
-        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Boutique
-          Experience</span>
+        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Boutique Experience</span>
         <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">
-          A Sanctuary of Quiet Elegance
+          A Luxury Sanctuary in Matara, Sri Lanka
         </h2>
         <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base md:text-lg">
           Seth Villa Matara is a luxurious boutique retreat nestled in a secluded landscape in down south Sri Lanka, designed for those seeking absolute privacy, aesthetic refinement, and premium villa accommodation. Framed by our signature open wooden gate, the property hosts a modern architecture blending raw bricks, sleek white arches, and natural timbers.
@@ -141,7 +140,7 @@
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
             <img ngSrc="images/double_room_private_bath.png" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Double Room with Private Bathroom"
+              alt="Luxury Double Room with Private Bathroom at Seth Villa Matara Sri Lanka"
               class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
@@ -183,7 +182,7 @@
         <div>
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
-            <img ngSrc="images/triple_room.png" fill sizes="(max-width: 768px) 100vw, 30vw" alt="Triple Room"
+            <img ngSrc="images/triple_room.png" fill sizes="(max-width: 768px) 100vw, 30vw" alt="Spacious Triple Room Accommodation at Seth Villa Matara Sri Lanka"
               class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
@@ -225,7 +224,7 @@
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
             <img ngSrc="images/standard_double_room.png" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Standard Double Room" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+              alt="Standard Double Room with Local Timber Finishes at Seth Villa Matara Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
@@ -265,9 +264,8 @@
 <!-- AMENITIES SECTION -->
 <section id="amenities" class="py-24 bg-brand-beige-100 px-6 border-y border-brand-beige-200/50">
   <div class="max-w-7xl mx-auto text-center max-w-2xl mb-16">
-    <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Curated
-      Comforts</span>
-    <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">AMENITIES</h2>
+    <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Curated Comforts</span>
+    <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">PREMIUM VILLA AMENITIES</h2>
     <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
   </div>
 
@@ -423,22 +421,104 @@
 
     <!-- Social Links -->
     <div class="flex justify-center space-x-6 text-brand-brown-800/70 mt-10">
-      <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" (click)="onSocialClick('facebook')"
+      <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('facebook')"
         class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Facebook">
         <i class="fa-brands fa-facebook-f"></i>
       </a>
-      <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')"
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('instagram')"
         class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Instagram">
         <i class="fa-brands fa-instagram"></i>
       </a>
-      <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')"
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('twitter')"
         class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Twitter">
         <i class="fa-brands fa-twitter"></i>
       </a>
-      <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')"
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('youtube')"
         class="hover:text-brand-gold-600 transition-colors text-base" aria-label="YouTube">
         <i class="fa-brands fa-youtube"></i>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE MATARA & DOWN SOUTH SECTION -->
+<section id="explore" class="py-24 bg-brand-beige-50 px-6 border-b border-brand-beige-200/50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Local Guide</span>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">EXPLORE MATARA & DOWN SOUTH</h2>
+      <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
+      <p class="font-sans text-sm text-brand-brown-800/70 mt-4 leading-relaxed font-light">
+        Conveniently situated in Walpola, Matara, Seth Villa is the perfect base to explore the scenic south coast of Sri Lanka, renowned for pristine beaches, historic landmarks, and rich wildlife.
+      </p>
+    </div>
+
+    <!-- Attractions Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Attraction 1: Polhena Beach -->
+      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+        <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
+          <img ngSrc="images/explore_polhena.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Polhena Beach coral reef and green sea turtles near Matara Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Polhena Beach</h3>
+            <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
+              Just a short drive away, Polhena is famous for its calm coral reef cove, swimming, snorkeling, and the chance to swim alongside giant green sea turtles in their natural habitat.
+            </p>
+          </div>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>5 mins drive</span>
+        </div>
+      </div>
+
+      <!-- Attraction 2: Dondra Lighthouse -->
+      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+        <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
+          <img ngSrc="images/explore_dondra.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Dondra Head Lighthouse the southernmost point of Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Dondra Head Lighthouse</h3>
+            <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
+              Visit the southernmost point of Sri Lanka and see the tallest lighthouse in the country, surrounded by lush coconut palms and dramatic ocean waves.
+            </p>
+          </div>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>15 mins drive</span>
+        </div>
+      </div>
+
+      <!-- Attraction 3: Mirissa Beach -->
+      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+        <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
+          <img ngSrc="images/explore_mirissa.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Mirissa beach surf point and whale watching harbor down south Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Mirissa Beach</h3>
+            <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
+              A vibrant hub for travelers, offering white sandy bays, outstanding surf breaks, trendy beach cafes, and world-class blue whale watching tours.
+            </p>
+          </div>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>20 mins drive</span>
+        </div>
+      </div>
+
+      <!-- Attraction 4: Matara Forts -->
+      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+        <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
+          <img ngSrc="images/explore_fort.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Historic Star Fort built by Dutch in Matara town Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+        </div>
+        <div class="p-6 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Historic Matara Forts</h3>
+            <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
+              Immerse yourself in history with the Portuguese-built Matara Fort and the unique star-shaped Dutch Star Fort located right in the center of Matara town.
+            </p>
+          </div>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>8 mins drive</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -667,20 +747,20 @@
 
         <!-- Social Icons (Bottom Left) -->
         <div class="flex space-x-6 text-brand-brown-800/50 border-t border-brand-beige-100 pt-6">
-          <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank"
+          <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer"
             (click)="onSocialClick('facebook')" class="hover:text-brand-gold-600 transition-colors text-base"
             aria-label="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" (click)="onSocialClick('instagram')"
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('instagram')"
             class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" (click)="onSocialClick('twitter')"
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('twitter')"
             class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Twitter">
             <i class="fa-brands fa-twitter"></i>
           </a>
-          <a href="https://youtube.com" target="_blank" (click)="onSocialClick('youtube')"
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('youtube')"
             class="hover:text-brand-gold-600 transition-colors text-base" aria-label="YouTube">
             <i class="fa-brands fa-youtube"></i>
           </a>
@@ -794,7 +874,7 @@
 </footer>
 
 <!-- FLOATING WHATSAPP CONNECT BADGE -->
-<a [href]="WHATSAPP_URL" target="_blank" (click)="onWhatsAppClick()"
+<a [href]="WHATSAPP_URL" target="_blank" rel="noopener noreferrer" (click)="onWhatsAppClick()"
   class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white flex items-center p-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group cursor-pointer focus:outline-none"
   aria-label="Connect on WhatsApp">
   <span

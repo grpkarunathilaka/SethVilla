@@ -73,16 +73,16 @@ export class App implements OnInit {
     this.analyticsService.trackPageView('Home', '/');
 
     // Set SEO metadata dynamically for crawlers and browser tabs
-    this.titleService.setTitle('Seth Villa Matara | Boutique Luxury Villa Accommodation in Down South Sri Lanka');
+    this.titleService.setTitle('Seth Villa Matara | Luxury Boutique Villa in Matara, Sri Lanka');
     
     this.metaService.updateTag({
       name: 'description',
-      content: 'Discover Seth Villa Matara, a luxury boutique villa in down south Sri Lanka. Offering premium accommodations, free Wi-Fi, air conditioning, and absolute privacy. Book your oasis today.'
+      content: 'Experience luxury boutique accommodation at Seth Villa Matara in down south Sri Lanka. Private retreat with premium rooms, air conditioning, free Wi-Fi, and serene tropical gardens. Book your stay today.'
     });
 
     this.metaService.updateTag({
       name: 'keywords',
-      content: 'Seth Villa Matara, Matara Accommodation, down south Sri Lanka Villa, boutique villa Matara, luxury villa Sri Lanka, Matara hotel, beach stay Sri Lanka'
+      content: 'Seth Villa Matara, luxury villa Matara Sri Lanka, holiday home Matara, private villa Matara, boutique villa down south Sri Lanka, accommodation in Matara, Sri Lanka villa stay, Matara guest house'
     });
   }
 
