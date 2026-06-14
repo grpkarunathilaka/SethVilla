@@ -37,7 +37,15 @@ export class App implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    bookingOption: 'Master Suite', // Default
+    bookingOption: 'Double Room with Private Bathroom', // Default
+  };
+
+  roomPrices: Record<string, number> = {
+    'Double Room with Private Bathroom': 7000,
+    'Triple Room': 8000,
+    'Standard Double Room': 9000,
+    'Entire Villa': 12000,
+    'Master Suite': 7000 // fallback
   };
 
   // Contact Form State
@@ -185,6 +193,34 @@ export class App implements OnInit {
     } catch (e) {
       return `${currency} ${(lkrAmount * rate).toFixed(2)}`;
     }
+  }
+
+  get numberOfNights(): number {
+    if (!this.checkInDate || !this.checkOutDate) return 0;
+    const diffTime = this.checkOutDate.getTime() - this.checkInDate.getTime();
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  }
+
+  get totalCostLKR(): number {
+    const nights = this.numberOfNights;
+    if (nights <= 0) return 0;
+    const pricePerNight = this.roomPrices[this.bookingForm.bookingOption] || 0;
+    return pricePerNight * nights;
+  }
+
+  getFormattedTotalLKR(): string {
+    return new Intl.NumberFormat('en-US').format(this.totalCostLKR);
+  }
+
+  getConvertedTotal(): string | null {
+    const totalLkr = this.totalCostLKR;
+    if (totalLkr <= 0) return null;
+    return this.getConvertedRate(totalLkr);
+  }
+
+  getFormattedRateLKR(roomOption: string): string {
+    const price = this.roomPrices[roomOption] || 0;
+    return new Intl.NumberFormat('en-US').format(price);
   }
 
   // Mobile Navigation toggle
@@ -384,7 +420,7 @@ export class App implements OnInit {
         }
 
         // Reset forms
-        this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Master Suite' };
+        this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Double Room with Private Bathroom' };
         this.checkInDate = null;
         this.checkOutDate = null;
         this.generateCalendar();
