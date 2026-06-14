@@ -160,9 +160,17 @@
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
-            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private Bath
-              and Courtyard
-            </h4>
+            <div class="space-y-1.5">
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private Bath
+                and Courtyard
+              </h4>
+              <div class="flex flex-col">
+                <span class="text-sm font-semibold text-brand-gold-600">LKR 7,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
+                @if (getConvertedRate(7000)) {
+                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(7000) }} / night</span>
+                }
+              </div>
+            </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               A luxurious oasis of comfort featuring a plush king-sized bed, elegant custom furnishings, and a spacious
               en-suite bathroom with premium amenities.
@@ -204,7 +212,15 @@
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
-            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Triple Room</h4>
+            <div class="space-y-1.5">
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Triple Room</h4>
+              <div class="flex flex-col">
+                <span class="text-sm font-semibold text-brand-gold-600">LKR 8,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
+                @if (getConvertedRate(8000)) {
+                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(8000) }} / night</span>
+                }
+              </div>
+            </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               Perfect for families or groups, this spacious suite offers flexible bedding arrangements, beautiful
               garden
@@ -247,7 +263,15 @@
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
-            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Double Room</h4>
+            <div class="space-y-1.5">
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Double Room</h4>
+              <div class="flex flex-col">
+                <span class="text-sm font-semibold text-brand-gold-600">LKR 9,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
+                @if (getConvertedRate(9000)) {
+                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(9000) }} / night</span>
+                }
+              </div>
+            </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               A cozy, minimalist retreat blending local timber details and modern comforts, ideal for relaxing after
               exploring Matara's beaches.

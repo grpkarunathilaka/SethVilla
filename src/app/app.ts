@@ -63,6 +63,11 @@ export class App implements OnInit {
   // Mobile Menu State
   isMobileMenuOpen = false;
 
+  // Currency State
+  userCurrency = signal<string>('USD');
+  exchangeRate = signal<number | null>(null);
+  exchangeRates: Record<string, number> = { USD: 0.0030 }; // default fallback rate
+
   constructor(
     private emailService: EmailService,
     private analyticsService: AnalyticsService,
@@ -70,9 +75,12 @@ export class App implements OnInit {
     private metaService: Meta
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.generateCalendar();
     this.analyticsService.trackPageView('Home', '/');
+
+    // Load currency and exchange rates
+    await this.initCurrencyConversion();
 
     // Set SEO metadata dynamically for crawlers and browser tabs
     this.titleService.setTitle('Seth Villa Matara | Luxury Boutique Villa in Matara, Sri Lanka');
@@ -121,6 +129,61 @@ export class App implements OnInit {
       } catch (e) {
         console.error('Error updating JSON-LD structured data:', e);
       }
+    }
+  }
+
+  async initCurrencyConversion() {
+    let targetCurrency = 'USD';
+    try {
+      const geoResponse = await fetch('https://freeipapi.com/api/json');
+      if (geoResponse.ok) {
+        const geoData = await geoResponse.json();
+        if (geoData.currencies && geoData.currencies.length > 0) {
+          targetCurrency = geoData.currencies[0];
+          this.userCurrency.set(targetCurrency);
+        }
+      }
+    } catch (e) {
+      console.warn('Geolocation failed, falling back to USD:', e);
+    }
+
+    try {
+      const rateResponse = await fetch('https://open.er-api.com/v6/latest/LKR');
+      if (rateResponse.ok) {
+        const rateData = await rateResponse.json();
+        if (rateData.result === 'success' && rateData.rates) {
+          this.exchangeRates = rateData.rates;
+          const rate = rateData.rates[targetCurrency];
+          if (rate) {
+            this.exchangeRate.set(rate);
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Exchange rate fetch failed, using fallback:', e);
+      const fallbackRate = this.exchangeRates[targetCurrency];
+      if (fallbackRate) {
+        this.exchangeRate.set(fallbackRate);
+      }
+    }
+  }
+
+  getConvertedRate(lkrAmount: number): string | null {
+    const rate = this.exchangeRate();
+    const currency = this.userCurrency();
+    
+    if (currency === 'LKR' || !rate) {
+      return null;
+    }
+
+    try {
+      const converted = lkrAmount * rate;
+      return new Intl.NumberFormat(navigator.language || 'en-US', {
+        style: 'currency',
+        currency: currency
+      }).format(converted);
+    } catch (e) {
+      return `${currency} ${(lkrAmount * rate).toFixed(2)}`;
     }
   }
 
