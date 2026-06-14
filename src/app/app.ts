@@ -4,6 +4,8 @@ import { NgOptimizedImage } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { EmailService, BookingDetails, ContactDetails } from './services/email.service';
 import { AnalyticsService } from './services/analytics.service';
+import { environment } from '../environments/environment';
+
 
 interface CalendarDay {
   date: Date;
@@ -84,6 +86,42 @@ export class App implements OnInit {
       name: 'keywords',
       content: 'Seth Villa Matara, luxury villa Matara Sri Lanka, holiday home Matara, private villa Matara, boutique villa down south Sri Lanka, accommodation in Matara, Sri Lanka villa stay, Matara guest house'
     });
+
+    // Set canonical link dynamically
+    let link: HTMLLinkElement | null = document.querySelector("link[rel='canonical']");
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', `${environment.siteUrl}/`);
+
+    // Set og/twitter meta tags dynamically
+    this.metaService.updateTag({ property: 'og:url', content: `${environment.siteUrl}/` });
+    this.metaService.updateTag({ property: 'og:image', content: `${environment.siteUrl}/images/villa_entrance.jpeg` });
+    this.metaService.updateTag({ name: 'twitter:url', content: `${environment.siteUrl}/` });
+    this.metaService.updateTag({ name: 'twitter:image', content: `${environment.siteUrl}/images/villa_entrance.jpeg` });
+
+    // Set JSON-LD dynamically
+    const ldJsonScript = document.querySelector('script[type="application/ld+json"]');
+    if (ldJsonScript) {
+      try {
+        const data = JSON.parse(ldJsonScript.innerHTML);
+        data.url = `${environment.siteUrl}/`;
+        if (data.image) {
+          data.image = data.image.map((img: string) => {
+            if (img.includes('/images/')) {
+              const parts = img.split('/images/');
+              return `${environment.siteUrl}/images/${parts[1]}`;
+            }
+            return img;
+          });
+        }
+        ldJsonScript.innerHTML = JSON.stringify(data, null, 2);
+      } catch (e) {
+        console.error('Error updating JSON-LD structured data:', e);
+      }
+    }
   }
 
   // Mobile Navigation toggle
