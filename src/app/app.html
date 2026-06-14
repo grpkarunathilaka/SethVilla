@@ -3,7 +3,8 @@
   class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-brand-beige-100/90 backdrop-blur-md border-b border-brand-beige-200/50 shadow-sm">
   <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
     <!-- Logo -->
-    <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer group flex flex-col justify-center" aria-label="Seth Villa Matara Logo Home">
+    <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')"
+      class="cursor-pointer group flex flex-col justify-center" aria-label="Seth Villa Matara Logo Home">
       <span
         class="font-serif text-2xl tracking-[0.2em] font-semibold text-brand-brown-900 group-hover:text-brand-gold-600 transition-colors">SETH
         VILLA</span>
@@ -40,13 +41,16 @@
   <div class="md:hidden bg-brand-beige-100 border-t border-brand-beige-200 shadow-lg px-6 py-8 animate-fadeIn">
     <nav
       class="flex flex-col space-y-6 text-base tracking-[0.2em] font-sans font-medium text-brand-brown-900 uppercase">
-      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Home</a>
-      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">The Villa</a>
+      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')"
+        class="cursor-pointer hover:text-brand-gold-600 transition-colors">Home</a>
+      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')"
+        class="cursor-pointer hover:text-brand-gold-600 transition-colors">The Villa</a>
       <a href="#amenities" (click)="$event.preventDefault(); scrollToSection('amenities')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors">Amenities</a>
       <a href="#explore" (click)="$event.preventDefault(); scrollToSection('explore')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors">Local Guide</a>
-      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-600 transition-colors">Book Now</a>
+      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')"
+        class="cursor-pointer hover:text-brand-gold-600 transition-colors">Book Now</a>
       <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')"
         class="cursor-pointer hover:text-brand-gold-600 transition-colors">Contact</a>
     </nav>
@@ -59,15 +63,16 @@
   <!-- Optimized Hero Background Image / Video -->
   <div class="absolute inset-0 z-0">
     <!-- Static Fallback/Mobile Hero Image -->
-    <img ngSrc="images/villa_entrance.jpeg" fill priority alt="Seth Villa Matara Luxury Boutique Villa Entrance Sri Lanka"
+    <img ngSrc="images/villa_entrance.jpeg" fill priority
+      alt="Seth Villa Matara Luxury Boutique Villa Entrance Sri Lanka"
       class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-static-image" />
-    
+
     <!-- Hero Video (Desktop Only) -->
     <video autoplay loop [muted]="true" playsinline poster="images/villa_entrance.jpeg"
       class="object-cover object-center w-full h-full brightness-[0.80] contrast-[1.05] hero-video">
       <source src="videos/herovideo.mp4" type="video/mp4" />
     </video>
-    
+
     <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-black/30"></div>
   </div>
 
@@ -87,7 +92,8 @@
 
   <!-- Social Icons (Bottom Center) -->
   <div class="absolute bottom-12 left-0 w-full z-10 flex justify-center space-x-8 text-white/80">
-    <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('facebook')"
+    <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank"
+      rel="noopener noreferrer" (click)="onSocialClick('facebook')"
       class="hover:text-brand-gold-500 transition-all transform hover:scale-110 text-xl" aria-label="Facebook">
       <i class="fa-brands fa-facebook-f"></i>
     </a>
@@ -112,12 +118,16 @@
     <!-- Top Row: Copy & Overview -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
       <div class="lg:col-span-7 space-y-6">
-        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Boutique Experience</span>
+        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Boutique
+          Experience</span>
         <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">
           A Luxury Sanctuary in Matara, Sri Lanka
         </h2>
         <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base md:text-lg">
-          Seth Villa Matara is a luxurious boutique retreat nestled in a secluded landscape in down south Sri Lanka, designed for those seeking absolute privacy, aesthetic refinement, and premium villa accommodation. Framed by our signature open wooden gate, the property hosts a modern architecture blending raw bricks, sleek white arches, and natural timbers.
+          Seth Villa Matara is a luxurious boutique retreat nestled in a secluded landscape in down south Sri Lanka,
+          designed for those seeking absolute privacy, aesthetic refinement, and premium villa accommodation. Framed by
+          our signature open wooden gate, the property hosts a modern architecture blending raw bricks, sleek white
+          arches, and natural timbers.
         </p>
       </div>
       <div class="lg:col-span-5 border-l-2 border-brand-gold-500/30 pl-8 py-2">
@@ -130,7 +140,8 @@
 
     <!-- Rooms Heading -->
     <div class="text-center mb-12">
-      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Premium Villa Accommodation in Down South Sri Lanka</span>
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Premium
+        Villa Accommodation in Down South Sri Lanka</span>
       <h3 class="font-serif text-3xl tracking-[0.1em] text-brand-brown-900 font-light">LUXURIOUS ACCOMMODATIONS</h3>
       <div class="w-12 h-[1px] bg-brand-gold-500 mx-auto mt-4"></div>
     </div>
@@ -150,6 +161,7 @@
           <!-- Info -->
           <div class="p-6 space-y-4">
             <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private Bath
+              and Courtyard
             </h4>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               A luxurious oasis of comfort featuring a plush king-sized bed, elegant custom furnishings, and a spacious
@@ -158,7 +170,7 @@
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">King
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Double
                 Bed</span>
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Private
@@ -166,8 +178,8 @@
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">A/C</span>
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Free
-                Wi-Fi</span>
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Hot
+                Water</span>
             </div>
           </div>
         </div>
@@ -186,20 +198,22 @@
         <div>
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
-            <img ngSrc="images/triple_room.png" fill sizes="(max-width: 768px) 100vw, 30vw" alt="Spacious Triple Room Accommodation at Seth Villa Matara Sri Lanka"
+            <img ngSrc="images/triple_room.png" fill sizes="(max-width: 768px) 100vw, 30vw"
+              alt="Spacious Triple Room Accommodation at Seth Villa Matara Sri Lanka"
               class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
-            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Triple Room</h4>
+            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Double Room</h4>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
-              Perfect for families or groups, this spacious suite offers flexible bedding arrangements, beautiful garden
+              Perfect for families or groups, this spacious suite offers flexible bedding arrangements, beautiful
+              garden
               views, and premium organic linens.
             </p>
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">3
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">2
                 Guests</span>
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Garden
@@ -228,11 +242,12 @@
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
             <img ngSrc="images/standard_double_room.png" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Standard Double Room with Local Timber Finishes at Seth Villa Matara Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+              alt="Standard Double Room with Local Timber Finishes at Seth Villa Matara Sri Lanka"
+              class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
-            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Double Room</h4>
+            <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Triple Room</h4>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               A cozy, minimalist retreat blending local timber details and modern comforts, ideal for relaxing after
               exploring Matara's beaches.
@@ -240,13 +255,8 @@
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Double
-                Bed</span>
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Timber
-                Details</span>
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">A/C</span>
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Non
+                A/C</span>
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Free
                 Wi-Fi</span>
@@ -268,8 +278,10 @@
 <!-- AMENITIES SECTION -->
 <section id="amenities" class="py-24 bg-brand-beige-100 px-6 border-y border-brand-beige-200/50">
   <div class="max-w-7xl mx-auto text-center max-w-2xl mb-16">
-    <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Curated Comforts</span>
-    <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">PREMIUM VILLA AMENITIES</h2>
+    <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Curated
+      Comforts</span>
+    <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">PREMIUM VILLA AMENITIES
+    </h2>
     <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
   </div>
 
@@ -425,7 +437,8 @@
 
     <!-- Social Links -->
     <div class="flex justify-center space-x-6 text-brand-brown-800/70 mt-10">
-      <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('facebook')"
+      <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank"
+        rel="noopener noreferrer" (click)="onSocialClick('facebook')"
         class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Facebook">
         <i class="fa-brands fa-facebook-f"></i>
       </a>
@@ -450,77 +463,102 @@
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Local Guide</span>
-      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">EXPLORE MATARA & DOWN SOUTH</h2>
+      <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Local
+        Guide</span>
+      <h2 class="font-serif text-4xl md:text-5xl tracking-[0.1em] text-brand-brown-900 font-light">EXPLORE MATARA & DOWN
+        SOUTH</h2>
       <div class="w-16 h-[1px] bg-brand-gold-500 mx-auto mt-6"></div>
       <p class="font-sans text-sm text-brand-brown-800/70 mt-4 leading-relaxed font-light">
-        Conveniently situated in Walpola, Matara, Seth Villa is the perfect base to explore the scenic south coast of Sri Lanka, renowned for pristine beaches, historic landmarks, and rich wildlife.
+        Conveniently situated in Walpola, Matara, Seth Villa is the perfect base to explore the scenic south coast of
+        Sri Lanka, renowned for pristine beaches, historic landmarks, and rich wildlife.
       </p>
     </div>
 
     <!-- Attractions Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Attraction 1: Polhena Beach -->
-      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+      <div
+        class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
         <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
-          <img ngSrc="images/explore_polhena.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Polhena Beach coral reef and green sea turtles near Matara Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img ngSrc="images/explore_polhena.png" fill sizes="(max-width: 768px) 100vw, 20vw"
+            alt="Polhena Beach coral reef and green sea turtles near Matara Sri Lanka"
+            class="object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="p-6 flex-grow flex flex-col justify-between">
           <div>
             <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Polhena Beach</h3>
             <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
-              Just a short drive away, Polhena is famous for its calm coral reef cove, swimming, snorkeling, and the chance to swim alongside giant green sea turtles in their natural habitat.
+              Just a short drive away, Polhena is famous for its calm coral reef cove, swimming, snorkeling, and the
+              chance to swim alongside giant green sea turtles in their natural habitat.
             </p>
           </div>
-          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>5 mins drive</span>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i
+              class="fa-solid fa-car-side mr-1.5"></i>5 mins drive</span>
         </div>
       </div>
 
       <!-- Attraction 2: Dondra Lighthouse -->
-      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+      <div
+        class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
         <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
-          <img ngSrc="images/explore_dondra.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Dondra Head Lighthouse the southernmost point of Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img ngSrc="images/explore_dondra.png" fill sizes="(max-width: 768px) 100vw, 20vw"
+            alt="Dondra Head Lighthouse the southernmost point of Sri Lanka"
+            class="object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="p-6 flex-grow flex flex-col justify-between">
           <div>
-            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Dondra Head Lighthouse</h3>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Dondra Head Lighthouse
+            </h3>
             <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
-              Visit the southernmost point of Sri Lanka and see the tallest lighthouse in the country, surrounded by lush coconut palms and dramatic ocean waves.
+              Visit the southernmost point of Sri Lanka and see the tallest lighthouse in the country, surrounded by
+              lush coconut palms and dramatic ocean waves.
             </p>
           </div>
-          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>15 mins drive</span>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i
+              class="fa-solid fa-car-side mr-1.5"></i>15 mins drive</span>
         </div>
       </div>
 
       <!-- Attraction 3: Mirissa Beach -->
-      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+      <div
+        class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
         <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
-          <img ngSrc="images/explore_mirissa.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Mirissa beach surf point and whale watching harbor down south Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img ngSrc="images/explore_mirissa.png" fill sizes="(max-width: 768px) 100vw, 20vw"
+            alt="Mirissa beach surf point and whale watching harbor down south Sri Lanka"
+            class="object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="p-6 flex-grow flex flex-col justify-between">
           <div>
             <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Mirissa Beach</h3>
             <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
-              A vibrant hub for travelers, offering white sandy bays, outstanding surf breaks, trendy beach cafes, and world-class blue whale watching tours.
+              A vibrant hub for travelers, offering white sandy bays, outstanding surf breaks, trendy beach cafes, and
+              world-class blue whale watching tours.
             </p>
           </div>
-          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>20 mins drive</span>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i
+              class="fa-solid fa-car-side mr-1.5"></i>20 mins drive</span>
         </div>
       </div>
 
       <!-- Attraction 4: Matara Forts -->
-      <div class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+      <div
+        class="bg-white rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
         <div class="aspect-[16/10] bg-brand-beige-100 relative overflow-hidden">
-          <img ngSrc="images/explore_fort.png" fill sizes="(max-width: 768px) 100vw, 20vw" alt="Historic Star Fort built by Dutch in Matara town Sri Lanka" class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img ngSrc="images/explore_fort.png" fill sizes="(max-width: 768px) 100vw, 20vw"
+            alt="Historic Star Fort built by Dutch in Matara town Sri Lanka"
+            class="object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="p-6 flex-grow flex flex-col justify-between">
           <div>
-            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Historic Matara Forts</h3>
+            <h3 class="font-serif text-xl tracking-wide text-brand-brown-900 font-semibold mb-2">Historic Matara Forts
+            </h3>
             <p class="text-xs font-light leading-relaxed text-brand-brown-800/70">
-              Immerse yourself in history with the Portuguese-built Matara Fort and the unique star-shaped Dutch Star Fort located right in the center of Matara town.
+              Immerse yourself in history with the Portuguese-built Matara Fort and the unique star-shaped Dutch Star
+              Fort located right in the center of Matara town.
             </p>
           </div>
-          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i class="fa-solid fa-car-side mr-1.5"></i>8 mins drive</span>
+          <span class="text-[0.65rem] uppercase tracking-wider font-semibold text-brand-gold-600 mt-4 block"><i
+              class="fa-solid fa-car-side mr-1.5"></i>8 mins drive</span>
         </div>
       </div>
     </div>
@@ -751,9 +789,9 @@
 
         <!-- Social Icons (Bottom Left) -->
         <div class="flex space-x-6 text-brand-brown-800/50 border-t border-brand-beige-100 pt-6">
-          <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank" rel="noopener noreferrer"
-            (click)="onSocialClick('facebook')" class="hover:text-brand-gold-600 transition-colors text-base"
-            aria-label="Facebook">
+          <a href="https://www.facebook.com/people/Seth-Villa-Matara/61590216036243/" target="_blank"
+            rel="noopener noreferrer" (click)="onSocialClick('facebook')"
+            class="hover:text-brand-gold-600 transition-colors text-base" aria-label="Facebook">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" (click)="onSocialClick('instagram')"
@@ -856,13 +894,16 @@
     <!-- Navigation -->
     <div
       class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs tracking-[0.15em] font-medium uppercase text-[#ede8dc]/80">
-      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Home</a>
-      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">The Villa</a>
+      <a href="#hero" (click)="$event.preventDefault(); scrollToSection('hero')"
+        class="cursor-pointer hover:text-brand-gold-500 transition-colors">Home</a>
+      <a href="#villa" (click)="$event.preventDefault(); scrollToSection('villa')"
+        class="cursor-pointer hover:text-brand-gold-500 transition-colors">The Villa</a>
       <a href="#amenities" (click)="$event.preventDefault(); scrollToSection('amenities')"
         class="cursor-pointer hover:text-brand-gold-500 transition-colors">Amenities</a>
       <a href="#explore" (click)="$event.preventDefault(); scrollToSection('explore')"
         class="cursor-pointer hover:text-brand-gold-500 transition-colors">Local Guide</a>
-      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')" class="cursor-pointer hover:text-brand-gold-500 transition-colors">Book Now</a>
+      <a href="#book" (click)="$event.preventDefault(); scrollToSection('book')"
+        class="cursor-pointer hover:text-brand-gold-500 transition-colors">Book Now</a>
       <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')"
         class="cursor-pointer hover:text-brand-gold-500 transition-colors">Contact</a>
     </div>
@@ -871,7 +912,8 @@
     <div class="text-xs text-[#ede8dc]/40 tracking-wider flex flex-col md:items-end">
       <span>&copy; 2026 Seth Villa Matara. All rights reserved.</span>
       <span class="mt-1">
-        <a href="mailto:yarra.digital.dev@gmail.com" class="hover:text-brand-gold-500 transition-colors underline decoration-[#ede8dc]/20 underline-offset-4">
+        <a href="mailto:yarra.digital.dev@gmail.com"
+          class="hover:text-brand-gold-500 transition-colors underline decoration-[#ede8dc]/20 underline-offset-4">
           Crafted by Yarra Digital
         </a>
       </span>

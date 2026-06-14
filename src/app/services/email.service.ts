@@ -19,7 +19,7 @@ export interface ContactDetails {
   providedIn: 'root',
 })
 export class EmailService {
-  private readonly WEB3FORMS_ACCESS_KEY = '40d4aa47-e377-452b-be00-7f8741535d95';
+  private readonly WEB3FORMS_ACCESS_KEY = '70babd42-98fd-475f-a8ee-eafcf8e2e1f4';
 
   // Hardcoded owner's email address
   public readonly OWNER_EMAIL = 'grpkarunathilaka@gmail.com';
