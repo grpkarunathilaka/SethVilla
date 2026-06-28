@@ -161,25 +161,26 @@
           <!-- Info -->
           <div class="p-6 space-y-4">
             <div class="space-y-1.5">
-              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private Bath
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private
+                Bath
                 and Courtyard
               </h4>
-              <div class="flex flex-col">
-                <span class="text-sm font-semibold text-brand-gold-600">LKR 7,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
-                @if (getConvertedRate(7000)) {
-                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(7000) }} / night</span>
-                }
-              </div>
+              <span
+                class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">Two
+                rooms available</span>
             </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
-              A luxurious oasis of comfort featuring a plush king-sized bed, elegant custom furnishings, and a spacious
+              A luxurious oasis of comfort featuring a Double bed, elegant custom furnishings, and a spacious
               en-suite bathroom with premium amenities.
             </p>
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Double
-                Bed</span>
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">2
+                Guests</span>
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Garden
+                View</span>
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Private
                 Bath</span>
@@ -192,39 +193,39 @@
           </div>
         </div>
         <div class="p-6 pt-0">
-          <button (click)="selectRoomAndScroll('Double Room with Private Bathroom')"
+          <button (click)="selectRoomAndScroll('Double Room with Private Bath and Courtyard')"
             class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
-            aria-label="Reserve Double Room with Private Bathroom at Seth Villa Matara">
+            aria-label="Reserve Double Room with Private Bath and Courtyard at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
       </div>
 
-      <!-- Card 2: Triple Room -->
+      <!-- Card 2: Double Room with Private Bath -->
       <div
         class="bg-white rounded-sm shadow-md border border-brand-beige-200/50 overflow-hidden flex flex-col justify-between group hover:shadow-lg transition-shadow duration-300">
         <div>
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
             <img ngSrc="images/triple_room.png" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Spacious Triple Room Accommodation at Seth Villa Matara Sri Lanka"
+              alt="Luxury Double Room with Private Bath Accommodation at Seth Villa Matara Sri Lanka"
               class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
             <div class="space-y-1.5">
-              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Triple Room</h4>
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private Bath</h4>
+              <span
+                class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">One
+                room available</span>
               <div class="flex flex-col">
-                <span class="text-sm font-semibold text-brand-gold-600">LKR 8,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
-                @if (getConvertedRate(8000)) {
-                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(8000) }} / night</span>
-                }
+                <span class="text-sm font-semibold text-brand-gold-600">$24.00 <span
+                    class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
               </div>
             </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
-              Perfect for families or groups, this spacious suite offers flexible bedding arrangements, beautiful
-              garden
-              views, and premium organic linens.
+              A luxurious oasis of comfort featuring a Double bed, elegant custom furnishings, and a spacious
+              en-suite bathroom with premium amenities.
             </p>
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
@@ -235,7 +236,7 @@
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Garden
                 View</span>
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">A/C</span>
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Fan</span>
               <span
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Free
                 Wi-Fi</span>
@@ -243,33 +244,34 @@
           </div>
         </div>
         <div class="p-6 pt-0">
-          <button (click)="selectRoomAndScroll('Triple Room')"
+          <button (click)="selectRoomAndScroll('Double Room with Private Bath')"
             class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
-            aria-label="Reserve Triple Room at Seth Villa Matara">
+            aria-label="Reserve Double Room with Private Bath at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
       </div>
 
-      <!-- Card 3: Standard Double Room -->
+      <!-- Card 3: Standard Triple Room with Shared Bath -->
       <div
         class="bg-white rounded-sm shadow-md border border-brand-beige-200/50 overflow-hidden flex flex-col justify-between group hover:shadow-lg transition-shadow duration-300">
         <div>
           <!-- Image -->
           <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
             <img ngSrc="images/standard_double_room.jpg" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Standard Double Room with Local Timber Finishes at Seth Villa Matara Sri Lanka"
+              alt="Standard Triple Room with Shared Bath with Local Timber Finishes at Seth Villa Matara Sri Lanka"
               class="object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
           <!-- Info -->
           <div class="p-6 space-y-4">
             <div class="space-y-1.5">
-              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Double Room</h4>
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Triple Room with Shared Bath</h4>
+              <span
+                class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">One
+                room available</span>
               <div class="flex flex-col">
-                <span class="text-sm font-semibold text-brand-gold-600">LKR 9,000 <span class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
-                @if (getConvertedRate(9000)) {
-                  <span class="text-xs text-brand-brown-800/60 font-light">≈ {{ getConvertedRate(9000) }} / night</span>
-                }
+                <span class="text-sm font-semibold text-brand-gold-600">$27.00 <span
+                    class="text-xs font-normal text-brand-brown-800/50">/ night</span></span>
               </div>
             </div>
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
@@ -282,15 +284,17 @@
                 class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Non
                 A/C</span>
               <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Free
-                Wi-Fi</span>
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Garden
+                View</span>
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Balcony</span>
             </div>
           </div>
         </div>
         <div class="p-6 pt-0">
-          <button (click)="selectRoomAndScroll('Standard Double Room')"
+          <button (click)="selectRoomAndScroll('Standard Triple Room with Shared Bath')"
             class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
-            aria-label="Reserve Standard Double Room at Seth Villa Matara">
+            aria-label="Reserve Standard Triple Room with Shared Bath at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
@@ -712,9 +716,9 @@
             <div class="relative">
               <select id="bookingOption" name="bookingOption" [(ngModel)]="bookingForm.bookingOption"
                 class="w-full px-4 py-3 bg-brand-beige-100/50 border border-brand-beige-200 rounded-sm focus:outline-none focus:border-brand-gold-500 font-sans text-sm transition-colors appearance-none cursor-pointer text-brand-brown-900">
-                <option value="Double Room with Private Bathroom">Double Room with Private Bathroom</option>
-                <option value="Triple Room">Triple Room</option>
-                <option value="Standard Double Room">Standard Double Room</option>
+                <option value="Double Room with Private Bath and Courtyard">Double Room with Private Bath and Courtyard</option>
+                <option value="Double Room with Private Bath">Double Room with Private Bath</option>
+                <option value="Standard Triple Room with Shared Bath">Standard Triple Room with Shared Bath</option>
                 <option value="Entire Villa">Entire Villa</option>
               </select>
               <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-brand-brown-800/60">
@@ -724,29 +728,34 @@
 
             <!-- Total Cost Summary -->
             @if (numberOfNights > 0) {
-              <div class="mt-4 p-4 bg-brand-beige-100/70 border border-brand-beige-200 rounded-sm flex flex-col justify-between space-y-2">
-                <div class="flex justify-between items-center text-xs text-brand-brown-800/60 font-sans">
-                  <span>Nights Selected:</span>
-                  <span class="font-semibold text-brand-brown-900">{{ numberOfNights }} {{ numberOfNights === 1 ? 'night' : 'nights' }}</span>
-                </div>
-                <div class="flex justify-between items-center text-xs text-brand-brown-800/60 font-sans border-b border-brand-beige-200/50 pb-2">
-                  <span>Rate per Night:</span>
-                  <span class="font-semibold text-brand-brown-900">LKR {{ getFormattedRateLKR(bookingForm.bookingOption) }}</span>
-                </div>
-                <div class="flex justify-between items-end pt-1">
-                  <span class="text-xs font-semibold text-brand-brown-800/70 uppercase tracking-wider">Total Cost:</span>
-                  <div class="text-right flex flex-col">
-                    <span class="text-sm font-bold text-brand-gold-600">LKR {{ getFormattedTotalLKR() }}</span>
-                    @if (getConvertedTotal()) {
-                      <span class="text-[0.7rem] text-brand-brown-800/50 font-light">≈ {{ getConvertedTotal() }}</span>
-                    }
-                  </div>
+            <div
+              class="mt-4 p-4 bg-brand-beige-100/70 border border-brand-beige-200 rounded-sm flex flex-col justify-between space-y-2">
+              <div class="flex justify-between items-center text-xs text-brand-brown-800/60 font-sans">
+                <span>Nights Selected:</span>
+                <span class="font-semibold text-brand-brown-900">{{ numberOfNights }} {{ numberOfNights === 1 ? 'night'
+                  : 'nights' }}</span>
+              </div>
+              <div
+                class="flex justify-between items-center text-xs text-brand-brown-800/60 font-sans border-b border-brand-beige-200/50 pb-2">
+                <span>Rate per Night:</span>
+                <span class="font-semibold text-brand-brown-900">LKR {{ getFormattedRateLKR(bookingForm.bookingOption)
+                  }}</span>
+              </div>
+              <div class="flex justify-between items-end pt-1">
+                <span class="text-xs font-semibold text-brand-brown-800/70 uppercase tracking-wider">Total Cost:</span>
+                <div class="text-right flex flex-col">
+                  <span class="text-sm font-bold text-brand-gold-600">LKR {{ getFormattedTotalLKR() }}</span>
+                  @if (getConvertedTotal()) {
+                  <span class="text-[0.7rem] text-brand-brown-800/50 font-light">≈ {{ getConvertedTotal() }}</span>
+                  }
                 </div>
               </div>
+            </div>
             } @else {
-              <div class="mt-4 p-3 bg-brand-beige-100/30 border border-dashed border-brand-beige-200 rounded-sm text-center text-[0.7rem] text-brand-brown-800/50 font-sans italic">
-                Please select check-in and check-out dates on the calendar to see total cost.
-              </div>
+            <div
+              class="mt-4 p-3 bg-brand-beige-100/30 border border-dashed border-brand-beige-200 rounded-sm text-center text-[0.7rem] text-brand-brown-800/50 font-sans italic">
+              Please select check-in and check-out dates on the calendar to see total cost.
+            </div>
             }
           </div>
 

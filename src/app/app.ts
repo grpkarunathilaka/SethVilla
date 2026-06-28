@@ -37,13 +37,13 @@ export class App implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    bookingOption: 'Double Room with Private Bathroom', // Default
+    bookingOption: 'Double Room with Private Bath and Courtyard', // Default
   };
 
   roomPrices: Record<string, number> = {
-    'Double Room with Private Bathroom': 7000,
-    'Triple Room': 8000,
-    'Standard Double Room': 9000,
+    'Double Room with Private Bath and Courtyard': 7000,
+    'Double Room with Private Bath': 8000,
+    'Standard Triple Room with Shared Bath': 9000,
     'Entire Villa': 12000,
     'Master Suite': 7000 // fallback
   };
@@ -420,7 +420,7 @@ export class App implements OnInit {
         }
 
         // Reset forms
-        this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Double Room with Private Bathroom' };
+        this.bookingForm = { firstName: '', lastName: '', email: '', bookingOption: 'Double Room with Private Bath and Courtyard' };
         this.checkInDate = null;
         this.checkOutDate = null;
         this.generateCalendar();
