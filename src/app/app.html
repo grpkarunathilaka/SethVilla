@@ -198,7 +198,7 @@
         </div>
       </div>
 
-      <!-- Card 2: Standard Triple Room with Shared Bath -->
+      <!-- Card 2: Double Room with Private Bath -->
       <div
         class="bg-white rounded-sm shadow-md border border-brand-beige-200/50 overflow-hidden flex flex-col justify-between group hover:shadow-lg transition-shadow duration-300">
         <div>
@@ -211,8 +211,8 @@
           <!-- Info -->
           <div class="p-6 space-y-4">
             <div class="space-y-1.5">
-              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Triple Room with
-                Shared Bath</h4>
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private
+                Bath</h4>
               <span
                 class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">One
                 room available</span>
@@ -220,6 +220,54 @@
             <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
               A cozy, minimalist retreat blending local timber details and modern comforts, ideal for relaxing after
               exploring Matara's beaches.
+            </p>
+            <!-- Amenities Badges -->
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">2
+                Guests</span>
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Private
+                Bath</span>
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">A/C</span>
+              <span
+                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Hot
+                Water</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <button (click)="selectRoomAndScroll('Double Room with Private Bath')"
+            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
+            aria-label="Reserve Double Room with Private Bath at Seth Villa Matara">
+            RESERVE ROOM
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3: Standard Triple Room with Shared Bath -->
+      <div
+        class="bg-white rounded-sm shadow-md border border-brand-beige-200/50 overflow-hidden flex flex-col justify-between group hover:shadow-lg transition-shadow duration-300">
+        <div>
+          <!-- Image -->
+          <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
+            <img ngSrc="images/standard_double_room.jpeg" fill sizes="(max-width: 768px) 100vw, 30vw"
+              alt="Luxury Double Room with Private Bath Accommodation at Seth Villa Matara Sri Lanka"
+              class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <!-- Info -->
+          <div class="p-6 space-y-4">
+            <div class="space-y-1.5">
+              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Standard Triple Room with
+                Shared Bath</h4>
+              <span
+                class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">One
+                room available</span>
+            </div>
+            <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
+              A luxurious oasis of comfort featuring a Double bed, elegant custom furnishings, and a spacious
+              en-suite bathroom with premium amenities.
             </p>
             <!-- Amenities Badges -->
             <div class="flex flex-wrap gap-2 pt-2">
@@ -246,54 +294,6 @@
           <button (click)="selectRoomAndScroll('Standard Triple Room with Shared Bath')"
             class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
             aria-label="Reserve Standard Triple Room with Shared Bath at Seth Villa Matara">
-            RESERVE ROOM
-          </button>
-        </div>
-      </div>
-
-      <!-- Card 3: Double Room with Private Bath -->
-      <div
-        class="bg-white rounded-sm shadow-md border border-brand-beige-200/50 overflow-hidden flex flex-col justify-between group hover:shadow-lg transition-shadow duration-300">
-        <div>
-          <!-- Image -->
-          <div class="overflow-hidden relative aspect-[4/3] bg-brand-beige-100">
-            <img ngSrc="images/standard_double_room.jpeg" fill sizes="(max-width: 768px) 100vw, 30vw"
-              alt="Luxury Double Room with Private Bath Accommodation at Seth Villa Matara Sri Lanka"
-              class="object-cover group-hover:scale-105 transition-transform duration-700" />
-          </div>
-          <!-- Info -->
-          <div class="p-6 space-y-4">
-            <div class="space-y-1.5">
-              <h4 class="font-serif text-xl tracking-wide text-brand-brown-900 font-medium">Double Room with Private
-                Bath</h4>
-              <span
-                class="text-[0.7rem] text-brand-gold-600 font-sans tracking-wider uppercase font-bold block mt-1">One
-                room available</span>
-            </div>
-            <p class="text-sm font-light leading-relaxed text-brand-brown-800/70">
-              A luxurious oasis of comfort featuring a Double bed, elegant custom furnishings, and a spacious
-              en-suite bathroom with premium amenities.
-            </p>
-            <!-- Amenities Badges -->
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">2
-                Guests</span>
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Private
-                Bath</span>
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">A/C</span>
-              <span
-                class="px-2.5 py-1 bg-brand-beige-100 text-brand-brown-900 text-[0.65rem] uppercase tracking-wider font-semibold rounded-sm">Hot
-                Water</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-6 pt-0">
-          <button (click)="selectRoomAndScroll('Double Room with Private Bath')"
-            class="w-full py-3 bg-brand-gold-500 hover:bg-brand-gold-600 text-white transition-colors duration-300 font-sans text-xs tracking-[0.2em] uppercase font-semibold shadow-sm"
-            aria-label="Reserve Double Room with Private Bath at Seth Villa Matara">
             RESERVE ROOM
           </button>
         </div>
@@ -600,7 +600,8 @@
     <!-- Map & Explorations Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
       <!-- Left: Map Image -->
-      <div class="lg:col-span-6 bg-white p-4 rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden group hover:shadow-md transition-shadow duration-300">
+      <div
+        class="lg:col-span-6 bg-white p-4 rounded-2xl border border-brand-beige-200/40 shadow-sm overflow-hidden group hover:shadow-md transition-shadow duration-300">
         <div class="aspect-square relative overflow-hidden bg-brand-beige-100 rounded-xl">
           <img ngSrc="images/sri_lanka_matara_map.png" fill sizes="(max-width: 768px) 100vw, 40vw"
             alt="Sri Lanka Down South Map showing Matara Location and Southern Expressway Roads"
@@ -610,13 +611,16 @@
 
       <!-- Right: Content & Legend -->
       <div class="lg:col-span-6 space-y-6">
-        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Location Accessibility</span>
+        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block">Location
+          Accessibility</span>
         <h3 class="font-serif text-3xl tracking-[0.1em] text-brand-brown-900 font-light">
           Gateway to the South Coast
         </h3>
         <p class="font-sans text-brand-brown-800/80 leading-relaxed font-light text-base">
-          Seth Villa Matara is strategically located close to major highways and transit corridors, making it the perfect gateway for down south excursions. 
-          The **Southern Expressway (E01)** connects Colombo to Matara in under 2 hours, while the **A2 coastal highway** offers a scenic route linking historic Galle, Weligama, Mirissa, and Tangalle.
+          Seth Villa Matara is strategically located close to major highways and transit corridors, making it the
+          perfect gateway for down south excursions.
+          The **Southern Expressway (E01)** connects Colombo to Matara in under 2 hours, while the **A2 coastal
+          highway** offers a scenic route linking historic Galle, Weligama, Mirissa, and Tangalle.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
@@ -1084,8 +1088,8 @@
               <span
                 class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">Address</span>
               <span class="text-sm text-brand-brown-900 font-medium leading-relaxed">
-                32 Walpola,<br>
-                Kithulawela Temple Road,<br>
+                32 Kithulawela Temple Road,<br>
+                Walpola,<br>
                 Matara 81000, Sri Lanka
               </span>
             </div>
@@ -1100,6 +1104,21 @@
               <span
                 class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">Phone</span>
               <span class="text-sm text-brand-brown-900 font-medium">+61 413 955 191</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="flex items-start space-x-5 font-sans">
+            <div class="text-brand-gold-600 text-lg mt-1 w-6">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <span
+                class="block text-xs font-semibold uppercase tracking-widest text-brand-brown-800/50 mb-1">WhatsApp</span>
+              <a [href]="WHATSAPP_URL" target="_blank" rel="noopener noreferrer" (click)="onWhatsAppClick()"
+                class="text-sm text-brand-brown-900 font-medium hover:text-brand-gold-600 transition-colors">
+                +61 413 955 191
+              </a>
             </div>
           </div>
 
