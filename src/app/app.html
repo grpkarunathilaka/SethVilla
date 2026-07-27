@@ -299,8 +299,75 @@
         </div>
       </div>
     </div>
+
+    <!-- Photo Gallery Sub-section -->
+    <div class="mt-20 pt-16 border-t border-brand-beige-200/50">
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase tracking-[0.3em] font-sans font-semibold text-brand-gold-600 block mb-2">Visual Showcase</span>
+        <h4 class="font-serif text-3xl tracking-[0.1em] text-brand-brown-900 font-light">VILLA PHOTO GALLERY</h4>
+        <p class="text-sm font-light text-brand-brown-800/70 mt-3 max-w-xl mx-auto">Explore moments, interior details, and scenic outdoor spaces around Seth Villa.</p>
+        <div class="w-12 h-[1px] bg-brand-gold-500 mx-auto mt-4"></div>
+      </div>
+
+      <!-- Gallery Grid (12 Photos) -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        @for (photo of galleryPhotos; track $index) {
+        <div (click)="openGalleryModal($index)"
+          class="relative aspect-[4/3] overflow-hidden rounded-sm bg-brand-beige-100 cursor-pointer group shadow-sm hover:shadow-md border border-brand-beige-200/50 transition-all duration-300">
+          <img [ngSrc]="photo" fill sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            alt="Seth Villa Gallery Image {{ $index + 1 }}"
+            class="object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div
+            class="absolute inset-0 bg-brand-brown-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <span class="w-10 h-10 rounded-full bg-white/90 text-brand-brown-900 flex items-center justify-center shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+            </span>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- LIGHTBOX MODAL -->
+@if (selectedGalleryIndex() !== null) {
+<div (click)="closeGalleryModal()"
+  class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8">
+  <!-- Close Button -->
+  <button (click)="closeGalleryModal()"
+    class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl focus:outline-none z-50 p-2"
+    aria-label="Close Gallery Modal">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+
+  <!-- Navigation Previous -->
+  <button (click)="prevGalleryPhoto($event)"
+    class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none z-50"
+    aria-label="Previous Photo">
+    <i class="fa-solid fa-chevron-left text-lg"></i>
+  </button>
+
+  <!-- Navigation Next -->
+  <button (click)="nextGalleryPhoto($event)"
+    class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none z-50"
+    aria-label="Next Photo">
+    <i class="fa-solid fa-chevron-right text-lg"></i>
+  </button>
+
+  <!-- Active Photo Container -->
+  <div (click)="$event.stopPropagation()" class="relative max-w-5xl max-h-[85vh] flex flex-col items-center">
+    <img [src]="galleryPhotos[selectedGalleryIndex()!]"
+      alt="Seth Villa Gallery Full View"
+      class="max-w-full max-h-[75vh] object-contain rounded-sm shadow-2xl" />
+    
+    <!-- Image Counter -->
+    <div class="mt-4 text-center text-white/80 font-sans text-xs tracking-widest uppercase">
+      Image {{ selectedGalleryIndex()! + 1 }} of {{ galleryPhotos.length }}
+    </div>
+  </div>
+</div>
+}
 
 <!-- AMENITIES SECTION -->
 <section id="amenities" class="py-24 bg-brand-beige-100 px-6 border-y border-brand-beige-200/50">

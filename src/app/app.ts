@@ -500,4 +500,47 @@ export class App implements OnInit {
   onSocialClick(platform: string) {
     this.analyticsService.trackEvent('social_media_click', { platform });
   }
+
+  // Photo Gallery State & Lightbox Modal
+  galleryPhotos: string[] = [
+    'images/ImageGallery/703015449_122096321391340534_7629201562935155455_n.jpg',
+    'images/ImageGallery/703015454_122096321511340534_335393708825804283_n.jpg',
+    'images/ImageGallery/703031950_122096321793340534_2611108607708012791_n.jpg',
+    'images/ImageGallery/703325782_122096321451340534_7758643906725538019_n.jpg',
+    'images/ImageGallery/704859565_122096321643340534_2767765395391763379_n.jpg',
+    'images/ImageGallery/704869123_122096321457340534_4723839150452760614_n.jpg',
+    'images/ImageGallery/705053553_122096321331340534_8717203714301584126_n.jpg',
+    'images/ImageGallery/705259724_122096321577340534_4666204734298398221_n.jpg',
+    'images/ImageGallery/705682078_122096321871340534_1118522564278594745_n.jpg',
+    'images/ImageGallery/706781364_122096321307340534_3790176519494972086_n.jpg',
+    'images/ImageGallery/810882596.jpg',
+    'images/ImageGallery/819626187.jpg'
+  ];
+
+  selectedGalleryIndex = signal<number | null>(null);
+
+  openGalleryModal(index: number) {
+    this.selectedGalleryIndex.set(index);
+    this.analyticsService.trackEvent('gallery_photo_view', { photo_index: index });
+  }
+
+  closeGalleryModal() {
+    this.selectedGalleryIndex.set(null);
+  }
+
+  nextGalleryPhoto(event?: Event) {
+    if (event) event.stopPropagation();
+    const current = this.selectedGalleryIndex();
+    if (current !== null) {
+      this.selectedGalleryIndex.set((current + 1) % this.galleryPhotos.length);
+    }
+  }
+
+  prevGalleryPhoto(event?: Event) {
+    if (event) event.stopPropagation();
+    const current = this.selectedGalleryIndex();
+    if (current !== null) {
+      this.selectedGalleryIndex.set((current - 1 + this.galleryPhotos.length) % this.galleryPhotos.length);
+    }
+  }
 }
